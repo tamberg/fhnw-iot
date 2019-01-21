@@ -1,9 +1,9 @@
 # IoT Engineering
 Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https://twitter.com/tamberg) for [FHNW](https://www.fhnw.ch/).
 
-## Lesson 1: Topic 1
-- [Slides](http://www.tamberg.org/fhnw/2019/IoT00Topic.pdf) TODO
-- [Handout](http://www.tamberg.org/fhnw/2019/IoT00TopicHandout.pdf) TODO
+## Lesson 1: Introduction to the Internet of Things
+- [Slides](http://www.tamberg.org/fhnw/2019/IoT01Introduction.pdf) TODO
+- [Handout](http://www.tamberg.org/fhnw/2019/IoT01IntroductionHandout.pdf) TODO
 
 ## Examples
 - [x.ino](x.ino)
