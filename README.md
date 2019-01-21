@@ -19,5 +19,5 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 9. [Remote Access and Device as a Server](09/README.md)
 10. [Rule Based Integration of IoT Devices](10/README.md)
 11. [Voice Control for Connected Products](11/README.md)
-12. [Deployment, Operations and Security](12/README.md)
+12. [Operations, Privacy and Security](12/README.md)
 13. [Assessment](13/README.md)
