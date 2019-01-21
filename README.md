@@ -8,8 +8,8 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 > Work in progress...
 
 0. [Syllabus](00/README.md)
-1. [Introduction to Internet of Things (IoT)](01/README.md)
-2. [Microcontrollers, Sensors & Actuators](02/README.md)
+1. [Introduction to the Internet of Things](01/README.md)
+2. [Microcontrollers, Sensors and Actuators](02/README.md)
 3. [Local Connectivity with Bluetooth LE](03/README.md)
 4. [Raspberry Pi as a Local IoT Gateway](04/README.md)
 5. [Sending Sensor Data to IoT Platforms](05/README.md)
