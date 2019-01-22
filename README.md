@@ -13,7 +13,7 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 3. [Local Connectivity with Bluetooth LE](03/README.md)
 4. [Raspberry Pi as a Local IoT Gateway](04/README.md)
 5. [Sending Sensor Data to IoT Platforms](05/README.md)
-6. [Messaging Protocols and Data Fromats](06/README.md)
+6. [Messaging Protocols and Data Formats](06/README.md)
 7. [Dashboards and Apps for Sensor Data](07/README.md)
 8. [Raspberry Pi as an IoT (Edge) Device](08/README.md)
 9. [Remote Access and Device as a Server](09/README.md)
