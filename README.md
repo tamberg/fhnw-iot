@@ -21,4 +21,4 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 11. [Voice Control for Connected Products](11/README.md)
 12. [Operations, Privacy and Security](12/README.md)
 13. [Assessment](13/README.md)
-14. [Demo Day](14/REDME.md)
+14. [Demo Day](14/README.md)
