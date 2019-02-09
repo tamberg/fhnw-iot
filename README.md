@@ -23,14 +23,14 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 
 ## Hardware
 
-This course uses the following hardware:
+This course is based on the following hardware:
 
 * Raspberry Pi Zero W
 * Feather Huzzah ESP8266
 * Feather nRF52840 Express
 * Grove sensors & actuators
 
-Why was this setup chosen?
+Why is this specific setup provided to students?
 
 * See http://www.tamberg.org/fhnw/2019/IoTHardwareForCSBachelorStudents.pdf
 
