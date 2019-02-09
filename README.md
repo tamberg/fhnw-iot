@@ -25,10 +25,10 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 
 This course is based on the following hardware:
 
-* [Raspberry Pi Zero W](./wiki/Raspberry-Pi-Zero-W)
-* Feather Huzzah ESP8266
-* Feather nRF52840 Express
-* FeatherWing RFM95W 900 MHz
+* [Raspberry Pi Zero W](./../../wiki/Raspberry-Pi-Zero-W)
+* [Feather Huzzah ESP8266](./../../wiki/Feather-Huzzah-ESP8266)
+* [Feather nRF52840 Express](./../../wiki/Feather-nRF52840-Express)
+* [FeatherWing RFM95W 900 MHz](./../../wiki/FeatherWing-RFM95W)
 * Grove sensors & actuators
 
 Why? See [IoT Hardware for CS bachelor students](http://www.tamberg.org/fhnw/2019/IoTHardwareForCSBachelorStudents.pdf).
