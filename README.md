@@ -22,13 +22,13 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 14. [Demo Day](14/README.md)
 
 ## Git
-Auf dem Raspberry Pi
 
-* Repository klonen:<pre>
-    $ cd ~
-    $ git clone https://github.com/tamberg/fhnw-syspr</pre>
-* Repository updaten, vor jeder Lektion:<pre>
-    $ cd ~/fhnw-syspr
+On your computer:
+
+* Clone this repository:<pre>
+    $ git clone https://github.com/tamberg/fhnw-iot</pre>
+* Update your local copy, before each lesson:<pre>
+    $ cd ./fhnw-iot
     $ git pull</pre>
 
 ## License
