@@ -31,7 +31,9 @@ This course is based on the following hardware:
 * FeatherWing RFM95W 900 MHz
 * Grove sensors & actuators
 
-For details and instructions, check the [course wiki](./../../wiki).
+For details and instructions
+
+* Check the [IoT Engineering Wiki](./../../wiki).
 
 Why is this specific hardware provided?
 
