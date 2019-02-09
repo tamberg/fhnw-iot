@@ -25,7 +25,7 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 
 This course is based on the following hardware:
 
-* Raspberry Pi Zero W
+* [Raspberry Pi Zero W](./wiki/Raspberry-Pi-Zero-W)
 * Feather Huzzah ESP8266
 * Feather nRF52840 Express
 * FeatherWing RFM95W 900 MHz
