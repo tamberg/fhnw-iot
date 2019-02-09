@@ -31,9 +31,9 @@ This course is based on the following hardware:
 * FeatherWing RFM95W 900 MHz
 * Grove sensors & actuators
 
-Why? See [IoT Hardware for CS bachelor students](http://www.tamberg.org/fhnw/2019/IoTHardwareForCSBachelorStudents.pdf)
+Why these? See [IoT Hardware for CS bachelor students](http://www.tamberg.org/fhnw/2019/IoTHardwareForCSBachelorStudents.pdf).
 
-For setup instructions, check the [IoT Engineering Wiki](./../../wiki)
+For setup instructions, check the [IoT Engineering Wiki](./../../wiki).
 
 ## Git
 
