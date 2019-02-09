@@ -33,7 +33,7 @@ This course is based on the following hardware:
 
 For details and instructions
 
-* Check the [IoT Engineering Wiki](./../../wiki).
+* Check the [IoT Engineering Wiki](./../../wiki)
 
 Why is this specific hardware provided?
 
