@@ -33,7 +33,9 @@ Auf dem Raspberry Pi
 
 ## License
 
+As far as it's not stated otherwise:
+
 * Source Code in this repository is declared Public Domain [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/).
 * Slides by [@tamberg](https://twitter.com/tamberg) are licensed under Creative Commons [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
 
-Need a license for your own code? Public Domain is just for education. [Choose another license](https://choosealicense.com/).
+Need a license for your own code? CC0 1.0 is for education. [Choose another license](https://choosealicense.com/).
