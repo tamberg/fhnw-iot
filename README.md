@@ -21,6 +21,19 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 13. [Assessment](13/README.md)
 14. [Demo Day](14/README.md)
 
+## Hardware
+
+This course uses the following hardware:
+
+* Raspberry Pi Zero W
+* Feather Huzzah ESP8266
+* Feather nRF52840 Express
+* Grove sensors & actuators
+
+Why was this setup chosen?
+
+* See http://www.tamberg.org/fhnw/2019/IoTHardwareForCSBachelorStudents.pdf
+
 ## Git
 
 On your computer:
