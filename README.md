@@ -28,6 +28,7 @@ This course is based on the following hardware:
 * Raspberry Pi Zero W
 * Feather Huzzah ESP8266
 * Feather nRF52840 Express
+* FeatherWing RFM95W 900 MHz
 * Grove sensors & actuators
 
 Why is this specific hardware setup provided to students?
