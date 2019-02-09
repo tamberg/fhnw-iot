@@ -40,4 +40,4 @@ As far as it's not stated otherwise:
 
 Publishing your own code?
 
-* [Choose an open source license](https://choosealicense.com/).
+* [Choose an open source license](https://choosealicense.com/), e.g. [MIT License](https://choosealicense.com/licenses/mit/).
