@@ -3,8 +3,6 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 
 ## Slides and code examples
 
-> Starting February 2019
-
 > Work in progress...
 
 0. [Syllabus](00/README.md)
