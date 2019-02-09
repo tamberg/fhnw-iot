@@ -30,7 +30,7 @@ This course is based on the following hardware:
 * Feather nRF52840 Express
 * Grove sensors & actuators
 
-Why is this specific setup provided to students?
+Why is this specific hardware setup provided to students?
 
 * See [IoT Hardware for CS bachelor students](http://www.tamberg.org/fhnw/2019/IoTHardwareForCSBachelorStudents.pdf)
 
