@@ -2,8 +2,8 @@
 Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https://twitter.com/tamberg) for [FHNW](https://www.fhnw.ch/).
 
 ## Lesson 2: Microcontrollers, Sensors & Actuators
-- [Slides](http://www.tamberg.org/fhnw/2019/IoT02Microcontrollers.pdf) TODO
-- [Handout](http://www.tamberg.org/fhnw/2019/IoT02MicrocontrollersHandout.pdf) TODO
+- [Slides](http://www.tamberg.org/fhnw/2019/IoT02MicrocontrollersSensorsAndActuators.pdf) TODO
+- [Handout](http://www.tamberg.org/fhnw/2019/IoT02MicrocontrollersSensorsAndActuatorsHandout.pdf) TODO
 
 ## Examples
 - [x.ino](x.ino)
