@@ -32,7 +32,7 @@ This course is based on the following hardware:
 
 Why is this specific setup provided to students?
 
-* Options and thoughts on [IoT Hardware for CS bachelor students](http://www.tamberg.org/fhnw/2019/IoTHardwareForCSBachelorStudents.pdf)
+* See [IoT Hardware for CS bachelor students](http://www.tamberg.org/fhnw/2019/IoTHardwareForCSBachelorStudents.pdf)
 
 ## Git
 
