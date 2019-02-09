@@ -31,7 +31,7 @@ This course is based on the following hardware:
 * FeatherWing RFM95W 900 MHz
 * Grove sensors & actuators
 
-For details and setup, check the [course wiki](./wiki).
+For details, check the [course wiki](./../../wiki).
 
 Why is this specific setup provided?
 
