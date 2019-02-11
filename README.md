@@ -2,7 +2,6 @@
 Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https://twitter.com/tamberg) for [FHNW](https://www.fhnw.ch/).
 
 ## Slides and code examples
-
 > Work in progress...
 
 0. [Syllabus](00/README.md)
@@ -22,7 +21,6 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 14. [Demo Day](14/README.md)
 
 ## Hardware
-
 This course is based on the following hardware:
 
 * [Raspberry Pi Zero W](./../../wiki/Raspberry-Pi-Zero-W)
@@ -33,10 +31,10 @@ This course is based on the following hardware:
 
 Why? See [IoT Hardware for CS bachelor students](http://www.tamberg.org/fhnw/2019/IoTHardwareForCSBachelorStudents.pdf).
 
-For instructions, check the [IoT Engineering Wiki](./../../wiki).
+## Wiki
+For hardware instructions and resources, check the [IoT Engineering Wiki](./../../wiki).
 
 ## Git
-
 On your computer:
 
 * Clone this repository:<pre>
