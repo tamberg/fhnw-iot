@@ -1,9 +1,9 @@
 # IoT Engineering
 Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https://twitter.com/tamberg) for [FHNW](https://www.fhnw.ch/).
 
-## Lesson 5: Sending Sensor Data to IoT Platforms
-- [Slides](http://www.tamberg.org/fhnw/2019/IoT05SensorDataPlatforms.pdf) TODO
-- [Handout](http://www.tamberg.org/fhnw/2019/IoT05SensorDataPlatformsHandout.pdf) TODO
+## Lesson 5: Local Connectivity with Bluetooth LE
+- [Slides](http://www.tamberg.org/fhnw/2019/IoT05BluetoothLEConnectivity.pdf) TODO
+- [Handout](http://www.tamberg.org/fhnw/2019/IoT05BluetoothLEConnectivityHandout.pdf) TODO
 
 ## Examples
 - [x.ino](x.ino)

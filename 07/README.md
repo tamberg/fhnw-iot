@@ -1,9 +1,9 @@
 # IoT Engineering
 Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https://twitter.com/tamberg) for [FHNW](https://www.fhnw.ch/).
 
-## Lesson 7: Dashboards and Apps for Sensor Data
-- [Slides](http://www.tamberg.org/fhnw/2019/IoT07Dashboards.pdf) TODO
-- [Handout](http://www.tamberg.org/fhnw/2019/IoT07DashboardsHandout.pdf) TODO
+## Lesson 7: Messaging Protocols and Data Formats
+- [Slides](http://www.tamberg.org/fhnw/2019/IoT07MessagingProtocols.pdf) TODO
+- [Handout](http://www.tamberg.org/fhnw/2019/IoT07MessagingProtocolsHandout.pdf) TODO
 
 ## Examples
 - [x.ino](x.ino)
