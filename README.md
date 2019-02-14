@@ -32,7 +32,12 @@ This course is based on the following hardware:
 Why? See [IoT Hardware for CS bachelor students](http://www.tamberg.org/fhnw/2019/IoTHardwareForCSBachelorStudents.pdf).
 
 ## Wiki
-For hardware and resources, check the [IoT Engineering Wiki](./../../wiki).
+For resources, check the [IoT Engineering Wiki](./../../wiki).
+
+* [Books](./../../wiki#books)
+* [Hardware](./../../wiki#hardware)
+* [IoT platforms](./../../wiki#iot-platforms)
+* ...
 
 ## Git
 On your computer:
