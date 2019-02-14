@@ -37,7 +37,7 @@ For resources, check the [IoT Engineering Wiki](./../../wiki):
 * [Books](./../../wiki/Books)
 * [Hardware](./../../wiki#hardware)
 * [IoT platforms](./../../wiki#iot-platforms)
-* [Tools](./../../wiki#tools)
+* [Development tools](./../../wiki#development-tools)
 
 ## Git
 On your computer:
