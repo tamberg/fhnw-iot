@@ -34,7 +34,7 @@ Why? See [IoT Hardware for CS bachelor students](http://www.tamberg.org/fhnw/201
 ## Wiki
 For resources, check the [IoT Engineering Wiki](./../../wiki):
 
-* [Books](./../../wiki/Books)
+* [Books](./../../wiki/IoT-Books)
 * [Hardware](./../../wiki#hardware)
 * [IoT platforms](./../../wiki#iot-platforms)
 * [Development tools](./../../wiki#development-tools)
