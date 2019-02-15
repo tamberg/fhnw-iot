@@ -6,7 +6,7 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [Handout](http://www.tamberg.org/fhnw/2019/IoT00SyllabusHandout.pdf)
 
 ## Hands-on
-- [Hands-on Lesson 0](../../../../fhnw-iot-work-00/blob/master/README.md)
+- [Hands-on Lesson 0](../../../../fhnw-iot-work-00/blob/master/README.md) TODO
 
 ## Support
 - [FHNW IoT Slack](https://fhnw-iot.slack.com/)
