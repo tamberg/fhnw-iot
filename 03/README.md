@@ -6,8 +6,8 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [Handout](http://www.tamberg.org/fhnw/2019/IoT03SensorDataPlatformsHandout.pdf) TODO
 
 ## Examples
-- [x.ino](x.ino)
-- [y.js](y.js)
+- [ESP8266_WiFiClientSetup/ESP8266_WiFiClientSetup.ino](ESP8266_WiFiClientSetup.ino)
+- [ESP8266_WiFiClient/ESP8266_WiFiClient.ino](ESP8266_WiFiClient.ino)
 
 ## Hands-on
 - [Hands-on Lesson 3](../../../../fhnw-iot-work-03/blob/master/README.md)
