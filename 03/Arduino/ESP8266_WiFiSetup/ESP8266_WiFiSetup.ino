@@ -5,7 +5,7 @@ const char *password = "MY_PASSWORD"; // TODO
 
 void setup() {
   Serial.begin(115200);
-  Serial.print("\nConnecting to Wi-Fi ");
+  Serial.print("\nConnecting to network ");
   Serial.println(ssid);
   WiFi.mode(WIFI_STA); // or WIFI_AP, WIFI_AP_STA, WIFI_OFF
   WiFi.begin(ssid, password);
