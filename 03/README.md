@@ -6,8 +6,11 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [Handout](http://www.tamberg.org/fhnw/2019/IoT03SensorDataPlatformsHandout.pdf) TODO
 
 ## Examples
-- [ESP8266_WiFiClientSetup.ino](Arduino/ESP8266_WiFiClientSetup/ESP8266_WiFiClientSetup.ino)
 - [ESP8266_WiFiClient.ino](Arduino/ESP8266_WiFiClient/ESP8266_WiFiClient.ino)
+- [ESP8266_WiFiClientSecure.ino](Arduino/ESP8266_WiFiClientSecure/ESP8266_WiFiClientSecure.ino)
+- [ESP8266_WiFiMacAddress.ino](Arduino/ESP8266_WiFiMacAddress/ESP8266_WiFiMacAddress.ino)
+- [ESP8266_WiFiSetup.ino](Arduino/ESP8266_WiFiSetup/ESP8266_WiFiSetup.ino)
+- [ESP8266_WiFiTimeClient.ino](Arduino/ESP8266_WiFiTimeClient/ESP8266_WiFiTimeClient.ino)
 
 ## Hands-on
 - [Hands-on Lesson 3](../../../../fhnw-iot-work-03/blob/master/README.md)
