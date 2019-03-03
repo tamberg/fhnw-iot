@@ -16,11 +16,11 @@ void setup() {
   Serial.print("Connected to network, local IP = "); 
   Serial.println(WiFi.localIP());
 
-  // call built-in, ESP8266-specific function in time.c
-  // see https://www.esp8266.com/viewtopic.php?t=17422    
+  // call built-in, ESP8266-specific function in time.cpp
+  // https://github.com/esp8266/Arduino/blob/master/cores/esp8266/time.cpp#L61
   const int timezone = 0;
-  const int dst = 0;
-  configTime(timezone * 3600, dst, "pool.ntp.org", "time.nist.gov");
+  const int dst_off = 0;
+  configTime(timezone * 3600, dst_off, "pool.ntp.org", "time.nist.gov");
   // wait for time() being adjusted, as a side effect of configTime
   while (time(NULL) < 28800 * 2) {
     delay(500);
