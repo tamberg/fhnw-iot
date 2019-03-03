@@ -21,10 +21,10 @@ void setup() {
   const int port = 443;
 
   // connect to remote host
-  WiFiClientSecure client;
+  WiFiClientSecure client; // use TLS
   if (client.connect(host, port)) {
 
-    // send HTTP request
+    // send HTTPS request
     client.print("GET ");
     client.print(path);
     client.print(" HTTP/1.1\r\n");
@@ -33,7 +33,7 @@ void setup() {
     client.print("\r\n");
     client.print("Connection: close\r\n\r\n");
 
-    // read HTTP response
+    // read HTTPS response
     while (client.connected() || client.available()) {
       int ch = client.read();
       while (ch >= 0) {
