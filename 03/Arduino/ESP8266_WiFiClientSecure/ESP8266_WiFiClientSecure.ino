@@ -16,9 +16,7 @@ void setup() {
   Serial.print("Connected to network, local IP = "); 
   Serial.println(WiFi.localIP());
 
-//  const char *host = "api.github.com";
-//  const char *path = "/repos/esp8266/Arduino/commits/master/status";
-  const char *host = "www.howsmyssl.com";
+  const char *host = "www.howsmyssl.com"; // via @spiessa
   const char *path = "/a/check";
   const int port = 443;
 
@@ -33,7 +31,6 @@ void setup() {
     client.print("Host: ");
     client.print(host);
     client.print("\r\n");
-//    client.print("User-Agent: BuildFailureDetectorESP8266\r\n");
     client.print("Connection: close\r\n\r\n");
 
     // read HTTP response
