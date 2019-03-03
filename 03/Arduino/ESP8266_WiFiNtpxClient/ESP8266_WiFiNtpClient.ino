@@ -11,7 +11,7 @@ void setup() {
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
-    delay(100); // keeps watchdog happy
+    delay(500); // keeps watchdog happy
   }
   Serial.print("Connected to network, local IP = "); 
   Serial.println(WiFi.localIP());
@@ -23,7 +23,7 @@ void setup() {
   configTime(timezone * 3600, dst, "pool.ntp.org", "time.nist.gov");
   // wait for time() being adjusted, as a side effect of configTime
   while (time(NULL) < 28800 * 2) {
-    delay(100);
+    delay(500);
   }
 }
 
