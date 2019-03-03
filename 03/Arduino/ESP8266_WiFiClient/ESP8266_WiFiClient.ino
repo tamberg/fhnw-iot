@@ -16,7 +16,7 @@ void setup() {
   Serial.println(WiFi.localIP());
 
   const char *host = "tmb.gr";
-  const char *path = "/iot";
+  const char *path = "/hello.html";
   const int port = 80;
 
   // connect to remote host
