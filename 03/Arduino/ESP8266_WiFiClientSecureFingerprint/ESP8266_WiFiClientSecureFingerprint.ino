@@ -22,28 +22,37 @@ void setup() {
   Serial.print("Connected to network, local IP = "); 
   Serial.println(WiFi.localIP());
 
-  // connect to remote host
+  Serial.print("Connecting to host ");
+  Serial.println(host);
   WiFiClientSecure client; // use TLS
-  if (client.connect(host, port) &&
-    client.verify(fingerprint, host)) {
+  if (client.connect(host, port)) {
 
-    // send HTTPS request
-    client.print("GET ");
-    client.print(path);
-    client.print(" HTTP/1.1\r\n");
-    client.print("Host: ");
-    client.print(host);
-    client.print("\r\n");
-    client.print("Connection: close\r\n\r\n");
+    Serial.print("Verifying host fingerprint ");
+    Serial.println(fingerprint);
+    if (client.verify(fingerprint, host)) {
 
-    // read HTTPS response
-    while (client.connected() || client.available()) {
-      int ch = client.read();
-      while (ch >= 0) {
-          Serial.print((char) ch);
-          ch = client.read();
+      Serial.println("Sending HTTP request");
+      client.print("GET ");
+      client.print(path);
+      client.print(" HTTP/1.1\r\n");
+      client.print("Host: ");
+      client.print(host);
+      client.print("\r\n");
+      client.print("Connection: close\r\n\r\n");
+  
+      Serial.println("Reading HTTP response\n");
+      while (client.connected() || client.available()) {
+        int ch = client.read();
+        while (ch >= 0) {
+            Serial.print((char) ch);
+            ch = client.read();
+        }
       }
+    } else {
+      Serial.println("Certificate mismatch");
     }
+  } else {
+    Serial.println("Cannot connect");
   }
 }
 
