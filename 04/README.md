@@ -6,8 +6,8 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [Handout](http://www.tamberg.org/fhnw/2019/IoT04InternetProtocolsHandout.pdf) TODO
 
 ## Examples
-- [x.ino](x.ino)
-- [y.js](y.js)
+- [ESP8266_WebServer.ino](Arduino/ESP8266_WebServer/ESP8266_WebServer.ino)
+- [ESP8266_LedWebService.ino](Arduino/ESP8266_LedWebService/ESP8266_LedWebService.ino)
 
 ## Hands-on
 - [Hands-on Lesson 4](../../../../fhnw-iot-work-04/blob/master/README.md)
