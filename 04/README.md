@@ -10,7 +10,7 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [y.js](y.js)
 
 ## Hands-on
-- [Hands-on Lesson 1](../../../../fhnw-iot-work-04/blob/master/README.md)
+- [Hands-on Lesson 4](../../../../fhnw-iot-work-04/blob/master/README.md)
 
 ## Support
 - [FHNW IoT Slack](https://fhnw-iot.slack.com/)
