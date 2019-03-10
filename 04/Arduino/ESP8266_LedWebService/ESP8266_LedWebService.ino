@@ -37,7 +37,7 @@ void loop() {
     // PUT /led?state=1
     if (client.find("state")) {
       int state = client.parseInt();
-      state = _min(_max(state, 0), 1);
+      state = min(max(state, 0), 1);
       Serial.println(state);
       digitalWrite(ledPin, state ? LOW : HIGH);
     }
