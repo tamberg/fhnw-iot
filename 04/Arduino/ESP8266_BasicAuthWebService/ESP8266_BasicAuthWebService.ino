@@ -2,7 +2,7 @@
 
 const char *ssid = "MY_SSID"; // TODO
 const char *password = "MY_PASSWORD"; // TODO
-// https://duckduckgo.com/?q=base64+encode+user%3Apassword
+// https://ddg.co/?q=base64+encode+MY_USER%3AMY_PASSWORD
 const char *storedCreds = "MY_BASE64_ENCODED_CREDENTIALS"; // TODO
 const int maxCredsLen = 64;
 const int port = 80;
