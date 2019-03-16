@@ -108,8 +108,9 @@ void loop() {
   if (Bluefruit.connected()) {
     int value = analogRead(A0);
     uint8_t hrmData[2] = { 0b00000110, value };
-    if ( heartRateMeasurementCharacteristic.notify(hrmData, sizeof(hrmData)) ){
-      Serial.print("Heart rate = "); Serial.println(value);
+    if (heartRateMeasurementCharacteristic.notify(hrmData, sizeof(hrmData))){
+      Serial.print("Heart rate = ");
+      Serial.println(value);
     } else {
       Serial.println("Notify not set, or not connected");
     }
