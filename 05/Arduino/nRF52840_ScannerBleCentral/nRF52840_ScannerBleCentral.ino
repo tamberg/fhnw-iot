@@ -25,7 +25,7 @@ void scanCallback(ble_gap_evt_adv_report_t* report) {
 
 void setup() {
   Serial.begin(115200);
-  while ( !Serial ) delay(10); // only if usb connected
+  while (!Serial) { delay(10); } // only if usb connected
 
   Bluefruit.begin(0, 1); // 0 peripheral, max 1 central connection, save SoftDevice SRAM
   Bluefruit.setTxPower(4); // -40, -30, -20, -16, -12, -8, -4, 0, 4
