@@ -12,9 +12,12 @@
 BLEDis deviceInfoService;
 BLEBas batteryService;
 
-BLEService heartRateMonitorService = BLEService(UUID16_SVC_HEART_RATE); // 0x180D
-BLECharacteristic heartRateMeasurementCharacteristic = BLECharacteristic(UUID16_CHR_HEART_RATE_MEASUREMENT); // 0x2A37
-BLECharacteristic bodySensorLocationCharacteristic = BLECharacteristic(UUID16_CHR_BODY_SENSOR_LOCATION); // 0x2A38
+// See https://www.bluetooth.com/specifications/gatt/viewer?attributeXmlFile=org.bluetooth.service.heart_rate.xml
+// and https://www.bluetooth.com/specifications/gatt/viewer?attributeXmlFile=org.bluetooth.characteristic.heart_rate_measurement.xml
+// and https://www.bluetooth.com/specifications/gatt/viewer?attributeXmlFile=org.bluetooth.characteristic.body_sensor_location.xml
+BLEService heartRateMonitorService = BLEService(0x180D);
+BLECharacteristic heartRateMeasurementCharacteristic = BLECharacteristic(0x2A37);
+BLECharacteristic bodySensorLocationCharacteristic = BLECharacteristic(0x2A38);
 
 void connectedCallback(uint16_t connectionHandle) {
   char centralName[32] = { 0 };
@@ -45,21 +48,17 @@ void cccdCallback(BLECharacteristic& characteristic, uint16_t cccdValue) {
 }
 
 void setupHeartRateMonitorService() {
-  // See https://www.bluetooth.com/specifications/gatt/viewer?attributeXmlFile=org.bluetooth.service.heart_rate.xml
   heartRateMonitorService.begin(); // Must be called before calling .begin() on its characteristics
 
-  // See https://www.bluetooth.com/specifications/gatt/viewer?attributeXmlFile=org.bluetooth.characteristic.heart_rate_measurement.xml
-  heartRateMeasurementCharacteristic.setProperties(CHR_PROPS_NOTIFY); // 0x2A37
+  heartRateMeasurementCharacteristic.setProperties(CHR_PROPS_NOTIFY);
   heartRateMeasurementCharacteristic.setPermission(SECMODE_OPEN, SECMODE_NO_ACCESS);
   heartRateMeasurementCharacteristic.setFixedLen(2);
   heartRateMeasurementCharacteristic.setCccdWriteCallback(cccdCallback);  // Optionally capture CCCD updates
   heartRateMeasurementCharacteristic.begin();
-
   uint8_t hrmData[2] = { 0b00000110, 0x40 }; // Use 8-bit values, sensor connected and detected
   heartRateMeasurementCharacteristic.notify(hrmData, 2); // Use .notify instead of .write
 
-  // See https://www.bluetooth.com/specifications/gatt/viewer?attributeXmlFile=org.bluetooth.characteristic.body_sensor_location.xml
-  bodySensorLocationCharacteristic.setProperties(CHR_PROPS_READ); // 0x2A38
+  bodySensorLocationCharacteristic.setProperties(CHR_PROPS_READ);
   bodySensorLocationCharacteristic.setPermission(SECMODE_OPEN, SECMODE_NO_ACCESS);
   bodySensorLocationCharacteristic.setFixedLen(1);
   bodySensorLocationCharacteristic.begin();
