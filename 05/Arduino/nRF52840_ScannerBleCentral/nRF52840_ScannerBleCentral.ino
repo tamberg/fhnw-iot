@@ -15,10 +15,6 @@ void scanCallback(ble_gap_evt_adv_report_t* report) {
   Serial.print(report->rssi);
   Serial.print(", data = ");
   Serial.printBuffer(report->data.p_data, report->data.len, '-');
-  if (Bluefruit.Scanner.checkReportForUuid(report, BLEUART_UUID_SERVICE)) {
-    Serial.print(", ");
-    Serial.println("BLEUART_UUID_SERVICE");
-  }
   Serial.println();
   Bluefruit.Scanner.resume(); // required for Softdevice v6
 }
