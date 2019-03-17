@@ -1,7 +1,11 @@
-// Copyright (c) Thomas Amberg, FHNW, based on code
+// Heart Rate Monitor BLE peripheral. Copyright (c) Thomas Amberg, FHNW
+
+// Based on https://github.com/adafruit/Adafruit_nRF52_Arduino
+// /tree/master/libraries/Bluefruit52Lib/examples/Peripheral
 // Copyright (c) Adafruit.com, all rights reserved.
-// Licensed under the MIT license see LICENSE file
-// or https://choosealicense.com/licenses/mit/
+
+// Licensed under the MIT license, see LICENSE or
+// https://choosealicense.com/licenses/mit/
 
 #include <bluefruit.h>
 
@@ -24,13 +28,12 @@ void connectedCallback(uint16_t connectionHandle) {
 void disconnectedCallback(uint16_t connectionHandle, uint8_t reason) {
   Serial.print(connectionHandle);
   Serial.print(" disconnected, reason = ");
-  Serial.println(reason); // see https://github.com/adafruit/Adafruit_nRF52_Arduino/blob/master/cores/nRF5/nordic/softdevice/s140_nrf52_6.1.1_API/include/ble_hci.h
+  Serial.println(reason); // see https://github.com/adafruit/Adafruit_nRF52_Arduino
+  // /blob/master/cores/nRF5/nordic/softdevice/s140_nrf52_6.1.1_API/include/ble_hci.h
   Serial.println("Advertising ...");
 }
 
 void cccdCallback(BLECharacteristic& characteristic, uint16_t cccdValue) {
-  Serial.print("CCCD, ");
-  Serial.println(cccdValue);
   if (characteristic.uuid == heartRateMeasurementCharacteristic.uuid) {
     Serial.print("Heart Rate Measurement 'Notify', ");
     if (characteristic.notifyEnabled()) {
@@ -43,7 +46,6 @@ void cccdCallback(BLECharacteristic& characteristic, uint16_t cccdValue) {
 
 void setupHeartRateMonitorService() {
   // See https://www.bluetooth.com/specifications/gatt/viewer?attributeXmlFile=org.bluetooth.service.heart_rate.xml
-
   heartRateMonitorService.begin(); // Must be called before calling .begin() on its characteristics
 
   // See https://www.bluetooth.com/specifications/gatt/viewer?attributeXmlFile=org.bluetooth.characteristic.heart_rate_measurement.xml
@@ -70,7 +72,7 @@ void startAdvertising() {
   Bluefruit.Advertising.addService(heartRateMonitorService);
   Bluefruit.Advertising.addName();
 
-  // https://developer.apple.com/library/content/qa/qa1931/_index.html   
+  // See https://developer.apple.com/library/content/qa/qa1931/_index.html   
   const int fastModeInterval = 32; // * 0.625 ms = 20 ms
   const int slowModeInterval = 244; // * 0.625 ms = 152.5 ms
   const int fastModeTimeout = 30; // s
@@ -100,7 +102,6 @@ void setup() {
   batteryService.write(100); // %
 
   setupHeartRateMonitorService();
-
   startAdvertising();
 }
 
@@ -108,7 +109,7 @@ void loop() {
   if (Bluefruit.connected()) {
     int value = analogRead(A0);
     uint8_t hrmData[2] = { 0b00000110, value };
-    if (heartRateMeasurementCharacteristic.notify(hrmData, sizeof(hrmData))){
+    if (heartRateMeasurementCharacteristic.notify(hrmData, sizeof(hrmData))) {
       Serial.print("Heart rate = ");
       Serial.println(value);
     } else {
