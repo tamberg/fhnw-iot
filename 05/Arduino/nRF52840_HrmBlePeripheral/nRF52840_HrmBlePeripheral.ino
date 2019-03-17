@@ -90,7 +90,7 @@ void setup() {
   Serial.println("Setup");
 
   Bluefruit.begin();
-  Bluefruit.setName("nRF52840 HRM");
+  Bluefruit.setName("nRF52840");
   Bluefruit.setConnectCallback(connectedCallback);
   Bluefruit.setDisconnectCallback(disconnectedCallback);
 
