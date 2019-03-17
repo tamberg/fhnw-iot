@@ -1,4 +1,4 @@
-// Heart Rate Monitor BLE peripheral. Copyright (c) Thomas Amberg, FHNW
+// Scanner BLE central. Copyright (c) Thomas Amberg, FHNW
 
 // Based on https://github.com/adafruit/Adafruit_nRF52_Arduino
 // /tree/master/libraries/Bluefruit52Lib/examples/Central
