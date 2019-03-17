@@ -15,6 +15,10 @@ void scanCallback(ble_gap_evt_adv_report_t* report) {
   Serial.print(report->rssi);
   Serial.print(", data = ");
   Serial.printBuffer(report->data.p_data, report->data.len, '-');
+  // See https://www.bluetooth.com/specifications/gatt/services
+  if (Bluefruit.Scanner.checkReportForUuid(UUID16_SVC_HEART_RATE)) { // 0x180D
+    Serial.print(", Heart Rate Monitor");
+  }
   Serial.println();
   Bluefruit.Scanner.resume(); // required for Softdevice v6
 }
