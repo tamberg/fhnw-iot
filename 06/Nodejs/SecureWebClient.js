@@ -4,7 +4,9 @@ const options = {
   hostname: 'api.github.com',
   path: '/emojis',
   // The GitHub API requires a User-Agent header
-  headers: { 'User-Agent': 'MyUserAgent/0.1' }
+  headers: {
+    'User-Agent': 'MyUserAgent/0.1'
+  }
 };
 
 https.get(options, (resp) => {
@@ -21,4 +23,3 @@ https.get(options, (resp) => {
 }).on("error", (err) => {
   console.log("Error: " + err.message);
 });
-
