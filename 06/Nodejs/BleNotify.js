@@ -13,18 +13,18 @@ noble.on("discover", (peripheral) => {
   peripheral.connect((err) => {
     console.log("connected");
     peripheral.discoverServices(serviceUuids, (err, services) => {
-      services.forEach((service) =>  {
+      services.forEach((service) => {
         console.log("found service:", service.uuid);
         service.discoverCharacteristics(characteristicUuids, (err, characteristics) => {
           characteristics.forEach((characteristic) => {
             console.log("found characteristic:", characteristic.uuid);
-            characteristic.on("data", (data, isNotification) =>  {
+            characteristic.on("data", (data, isNotification) => {
               if (isNotification) {
                 const notifValue = data.readUInt8(0);
                 console.log("notified:", notifValue);
               }
             });
-            characteristic.subscribe((err) =>  {
+            characteristic.subscribe((err) => {
               console.log("subscribed");
             });
           });
