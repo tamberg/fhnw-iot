@@ -1,12 +1,12 @@
 const https = require("https"),
   qs = require("querystring");
 
-let reqData = qs.stringify({
+const reqData = qs.stringify({
   "value": 42,
   "date_time": "2019-03-05T00:00:00Z"
 });
 
-let options = {
+const options = {
   hostname: "postb.in",
   path: "/MY_POSTBIN_ID", // TODO, see https://postb.in/
   method: "POST",
@@ -17,7 +17,7 @@ let options = {
   }
 };
 
-let req = https.request(options, (res) => {
+const req = https.request(options, (res) => {
   let resData = "";
 
   res.on("data", (chunk) => {
