@@ -12,7 +12,7 @@ noble.on("discover", (peripheral) => {
     peripheral.advertisement.localName);
   peripheral.connect((err) => {
     console.log("connected");
-    peripheral.discoverServices(serviceUuids, (err, services) =>  {
+    peripheral.discoverServices(serviceUuids, (err, services) => {
       services.forEach((service) =>  {
         console.log("found service:", service.uuid);
         service.discoverCharacteristics(characteristicUuids, (err, characteristics) => {
