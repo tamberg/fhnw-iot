@@ -6,7 +6,7 @@ let reqData = qs.stringify({
   "date_time": "2019-03-05T00:00:00Z"
 });
 
-const options = {
+let options = {
   hostname: "postb.in",
   path: "/MY_POSTBIN_ID", // TODO, see https://postb.in/
   method: "POST",
