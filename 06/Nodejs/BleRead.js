@@ -2,6 +2,8 @@ const noble = require("noble");
 
 const hrmServiceUuid = "180d";
 const hrmHeartRateCharacteristicUuid = "2a37";
+const serviceUuids = [hrmServiceUuid];
+const characteristicUuids = [hrmHeartRateCharacteristicUuid];
 
 noble.on("discover", (peripheral) => {
   noble.stopScanning();
@@ -10,29 +12,26 @@ noble.on("discover", (peripheral) => {
     peripheral.advertisement.localName);
   peripheral.connect((err) => {
     console.log("connected");
-    peripheral.discoverServices([hrmServiceUuid], (err, services) =>  {
+    peripheral.discoverServices(serviceUuids, (err, services) =>  {
       services.forEach((service) =>  {
         console.log("found service:", service.uuid);
-        service.discoverCharacteristics([], (err, characteristics) =>  {
+        service.discoverCharacteristics(characteristicUuids, (err, characteristics) => {
           characteristics.forEach((characteristic) =>  {
             console.log("found characteristic:", characteristic.uuid);
-            if (hrmHeartRateCharacteristicUuid == characteristic.uuid) {
-              characteristic.read((error, data) =>  {
-                const value = data.readUInt8(0);
-                console.log("read characteristic value:", value);
-                peripheral.disconnect((err) => {
-                  console.log("disconnected");
-                });
+            characteristic.read((error, data) =>  {
+              const value = data.readUInt8(0);
+              console.log("read characteristic value:", value);
+              peripheral.disconnect((err) => {
+                console.log("disconnected");
+                process.exit();
               });
-            }
+            });
           });
         });
       });
     });
   });
 });
-
-const serviceUuids = [hrmServiceUuid];
 
 console.log("scanning...");
 noble.startScanning(serviceUuids, false);
