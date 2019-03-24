@@ -27,7 +27,9 @@ const req = https.request(options, (res) => {
   res.on("end", () => {
     console.log(resData);
   });
-}).on("error", (err) => {
+});
+
+req.on("error", (err) => {
   console.log("Error: " + err.message);
 });
 
