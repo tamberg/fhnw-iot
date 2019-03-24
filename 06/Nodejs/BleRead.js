@@ -16,9 +16,9 @@ noble.on("discover", (peripheral) => {
       services.forEach((service) =>  {
         console.log("found service:", service.uuid);
         service.discoverCharacteristics(characteristicUuids, (err, characteristics) => {
-          characteristics.forEach((characteristic) =>  {
+          characteristics.forEach((characteristic) => {
             console.log("found characteristic:", characteristic.uuid);
-            characteristic.read((error, data) =>  {
+            characteristic.read((error, data) => {
               const value = data.readUInt8(0);
               console.log("read characteristic value:", value);
               peripheral.disconnect((err) => {
