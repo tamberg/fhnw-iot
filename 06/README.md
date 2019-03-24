@@ -6,8 +6,10 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [Handout](http://www.tamberg.org/fhnw/2019/IoT06RaspberryPiGatewayHandout.pdf) TODO
 
 ## Examples
-- [x.ino](x.ino)
-- [y.js](y.js)
+- [SecureWebClient.js](Nodejs/SecureWebClient.js)
+- [SecureWebService.js](Nodejs/SecureWebService.js)
+- [WebClient.js](Nodejs/WebClient.js)
+- [WebService.js](Nodejs/WebService.js)
 
 ## Hands-on
 - [Hands-on Lesson 6](../../../../fhnw-iot-work-06/blob/master/README.md)
