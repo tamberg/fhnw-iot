@@ -1,25 +1,35 @@
-const https = require("https");
+const https = require("https"),
+  qs = require("querystring");
+
+let reqData = qs.stringify({
+  "value": 42,
+  "date_time": "2019-03-05T00:00:00Z"
+});
 
 const options = {
-  hostname: "api.github.com",
-  path: "/emojis",
-  // The GitHub API requires a User-Agent header
+  hostname: "postb.in",
+  path: "/MY_POSTBIN_ID", // TODO, see https://postb.in/
+  method: "POST",
+  port: 443,
   headers: {
-    "User-Agent": "MyUserAgent/0.1"
+    "Content-Type": "application/x-www-form-urlencoded",
+    "Content-Length": Buffer.byteLength(reqData)
   }
 };
 
-https.get(options, (resp) => {
-  let data = "";
+let req = https.request(options, (res) => {
+  let resData = "";
 
-  resp.on("data", (chunk) => {
-    data += chunk;
+  res.on("data", (chunk) => {
+    resData += chunk;
   });
 
-  resp.on("end", () => {
-    console.log(JSON.parse(data));
+  res.on("end", () => {
+    console.log(resData);
   });
-
 }).on("error", (err) => {
   console.log("Error: " + err.message);
 });
+
+req.write(reqData);
+req.end();
