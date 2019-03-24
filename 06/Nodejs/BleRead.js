@@ -4,7 +4,7 @@ const hrmServiceUuid = "180d";
 const hrmHeartRateCharacteristicUuid = "2a37";
 
 noble.on("discover", (peripheral) => {
-  //console.log(peripheral); // lots of information
+  noble.stopScanning();
   console.log(
     peripheral.address + ", " +
     peripheral.advertisement.localName);
@@ -17,17 +17,11 @@ noble.on("discover", (peripheral) => {
           characteristics.forEach((characteristic) =>  {
             console.log("found characteristic:", characteristic.uuid);
             if (hrmHeartRateCharacteristicUuid == characteristic.uuid) {
-              characteristic.on("data", (data, isNotification) =>  {
-                if (isNotification) {
-                  const notifValue = data.readUInt8(0);
-                  console.log("notify:", notifValue);
-                }
-              });
               characteristic.read((error, data) =>  {
-                const readValue = data.readUInt8(0);
-                console.log("read:", readValue);
-                characteristic.subscribe((err) =>  {
-                  console.log("subscribed");
+                const value = data.readUInt8(0);
+                console.log("read characteristic value:", value);
+                peripheral.disconnect((err) => {
+                  console.log("disconnected");
                 });
               });
             }
