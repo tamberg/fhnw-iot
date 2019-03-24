@@ -24,13 +24,9 @@ noble.on("discover", (peripheral) => {
                 console.log("notified:", notifValue);
               }
             });
-            //characteristic.read((error, data) =>  {
-            //  const readValue = data.readUInt8(0);
-            //  console.log("read:", readValue);
             characteristic.subscribe((err) =>  {
               console.log("subscribed");
             });
-            //});
           });
         });
       });
