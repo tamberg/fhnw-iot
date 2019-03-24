@@ -6,6 +6,10 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [Handout](http://www.tamberg.org/fhnw/2019/IoT06RaspberryPiGatewayHandout.pdf) TODO
 
 ## Examples
+- [BleNotify.js](Nodejs/BleNotify.js)
+- [BleRead.js](Nodejs/BleRead.js)
+- [BleScan.js](Nodejs/BleScan.js)
+- [BleWrite.js](Nodejs/BleWrite.js)
 - [SecureWebClient.js](Nodejs/SecureWebClient.js)
 - [SecureWebService.js](Nodejs/SecureWebService.js)
 - [WebClient.js](Nodejs/WebClient.js)
