@@ -1,7 +1,7 @@
 # IoT Engineering
 Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https://twitter.com/tamberg) for [FHNW](https://www.fhnw.ch/).
 
-## Project Repository
+## Project
 - https://github.com/fhnw-iot-4ia/fhnw-iot-project
 
 ## Demo Day
