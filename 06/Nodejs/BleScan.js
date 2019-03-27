@@ -1,4 +1,4 @@
-const noble = require("noble");
+const noble = require("@abandonware/noble");
 
 noble.on("discover", (peripheral) => {
   //console.log(peripheral); // lots of information
