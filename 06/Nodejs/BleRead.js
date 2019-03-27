@@ -1,4 +1,4 @@
-const noble = require("noble");
+const noble = require("@abandonware/noble");
 
 const hrmServiceUuid = "180d";
 const hrmHeartRateCharacteristicUuid = "2a37";
