@@ -7,16 +7,11 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 
 ## Examples
 ### Use cases
-- [Discovery.png](Discovery.png)<br/>
-    <img src="Discovery.png" height="150"/>
-- [RemoteControl.png](RemoteControl.png)<br/>
-    <img src="RemoteControl.png" height="150"/>
-- [RemoteSensing.png](RemoteSensing.png)<br/>
-    <img src="RemoteSensing.png" height="150"/>
-- [RemoteSensing2.png](RemoteSensing2.png)<br/>
-    <img src="RemoteSensing2.png" height="150"/>
-- [RemoteSensing3.png](RemoteSensing3.png)<br/>
-    <img src="RemoteSensing3.png" height="150"/>
+- [Discovery.png](Discovery.png)
+- [RemoteControl.png](RemoteControl.png)
+- [RemoteSensing.png](RemoteSensing.png)
+- [RemoteSensing2.png](RemoteSensing2.png)
+- [RemoteSensing3.png](RemoteSensing3.png)
 
 ### Node.js BLE
 - [BleNotify.js](Nodejs/BleNotify.js)
