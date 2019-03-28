@@ -13,13 +13,13 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [RemoteSensing2.png](RemoteSensing2.png)
 - [RemoteSensing3.png](RemoteSensing3.png)
 
-### BLE
+### Node.js BLE
 - [BleNotify.js](Nodejs/BleNotify.js)
 - [BleRead.js](Nodejs/BleRead.js)
 - [BleScan.js](Nodejs/BleScan.js)
 - [BleWrite.js](Nodejs/BleWrite.js)
 
-### Web
+### Node.js Web
 - [SecureWebClient.js](Nodejs/SecureWebClient.js)
 - [SecureWebService.js](Nodejs/SecureWebService.js)
 - [WebClient.js](Nodejs/WebClient.js)
