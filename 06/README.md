@@ -6,10 +6,20 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [Handout](http://www.tamberg.org/fhnw/2019/IoT06RaspberryPiGatewayHandout.pdf)
 
 ## Examples
+### Use cases
+- [Discovery.png](Discovery.png)
+- [RemoteControl.png](RemoteControl.png)
+- [RemoteSensing.png](RemoteSensing.png)
+- [RemoteSensing2.png](RemoteSensing2.png)
+- [RemoteSensing3.png](RemoteSensing3.png)
+
+### BLE
 - [BleNotify.js](Nodejs/BleNotify.js)
 - [BleRead.js](Nodejs/BleRead.js)
 - [BleScan.js](Nodejs/BleScan.js)
 - [BleWrite.js](Nodejs/BleWrite.js)
+
+### Web
 - [SecureWebClient.js](Nodejs/SecureWebClient.js)
 - [SecureWebService.js](Nodejs/SecureWebService.js)
 - [WebClient.js](Nodejs/WebClient.js)
