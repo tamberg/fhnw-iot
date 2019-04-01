@@ -6,8 +6,10 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [Handout](http://www.tamberg.org/fhnw/2019/IoT07MessagingProtocolsHandout.pdf) TODO
 
 ## Examples
-- [x.ino](x.ino)
-- [y.js](y.js)
+- [MqttPubClient.ino](Arduino/MqttPubClient/MqttPubClient.ino)
+- [MqttSubClient.ino](Arduino/MqttSubClient/MqttSubClient.ino)
+- [MqttPubClient.js](Nodejs/MqttPubClient.js)
+- [MqttSubClient.js](Nodejs/MqttSubClient.js)
 
 ## Hands-on
 - [Hands-on Lesson 7](../../../../fhnw-iot-work-07/blob/master/README.md)
