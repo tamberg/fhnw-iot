@@ -24,8 +24,6 @@ void setup() {
   Serial.println(WiFi.localIP());
 
   client.onConnect(handleConnected);
-  client.onSubscribe(handleSubscribed);
-  client.onData(handleDataReceived);
   client.begin("mqtt://test.mosquitto.org/");
 }
 
