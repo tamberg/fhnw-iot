@@ -31,9 +31,6 @@
  *
  *******************************************************************************/
 
- // References:
- // [feather] adafruit-feather-m0-radio-with-lora-module.pdf
-
 #include <lmic.h>
 #include <hal/hal.h>
 #include <SPI.h>
@@ -81,17 +78,18 @@ static osjob_t sendjob;
 const unsigned TX_INTERVAL = 60;
 
 // Pin mapping
-// Adapted for Feather M0 per p.10 of [feather]
 
-// Feather nRF52840 Express
+// https://github.com/tamberg/fhnw-iot/wiki/FeatherWing-RFM95W
+
+// Feather Huzzah ESP8266
 const lmic_pinmap lmic_pins = {
-    .nss = 5, // E = CS
+    .nss = 2, // E = CS
     .rxtx = LMIC_UNUSED_PIN,
-    .rst = 6, // D = RST
+    .rst = 16, // D = RST
     .dio = {
-      10, // B = DIO0 = IRQ 
-      9,  // C = DIO1
-      LMIC_UNUSED_PIN
+        15, // B = DIO0 = IRQ
+        0,  // C = DIO1
+        LMIC_UNUSED_PIN
     },
 };
 

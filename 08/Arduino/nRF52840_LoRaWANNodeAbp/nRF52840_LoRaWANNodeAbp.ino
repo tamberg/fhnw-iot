@@ -79,15 +79,17 @@ const unsigned TX_INTERVAL = 60;
 
 // Pin mapping
 
-// Feather Huzzah ESP8266
+// https://github.com/tamberg/fhnw-iot/wiki/FeatherWing-RFM95W
+
+// Feather nRF52840 Express
 const lmic_pinmap lmic_pins = {
-    .nss = 2, // E = CS
+    .nss = 5, // E = CS
     .rxtx = LMIC_UNUSED_PIN,
-    .rst = 16, // D = RST
+    .rst = 6, // D = RST
     .dio = {
-        15, // B = DIO0 = IRQ
-        0,  // C = DIO1
-        LMIC_UNUSED_PIN
+      10, // B = DIO0 = IRQ 
+      9,  // C = DIO1
+      LMIC_UNUSED_PIN
     },
 };
 
