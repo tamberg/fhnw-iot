@@ -6,11 +6,11 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [Handout](http://www.tamberg.org/fhnw/2019/IoT08LoRaWANConnectivityHandout.pdf)
 
 ## Examples
-Arduino ESP8266
+### Arduino ESP8266
 - [ESP8266_LoRaWANNodeAbp.ino](Arduino/ESP8266_LoRaWANNodeAbp/ESP8266_LoRaWANNodeAbp.ino)
 - [ESP8266_LoRaWANNodeOtaa.ino](Arduino/ESP8266_LoRaWANNodeOtaa/ESP8266_LoRaWANNodeOtaa.ino)
 
-Arduino nRF52840
+### Arduino nRF52840
 - [nRF52840_LoRaWANCNodeAbp.ino](Arduino/nRF52840_LoRaWANCNodeAbp/nRF52840_LoRaWANCNodeAbp.ino)
 - [nRF52840_LoRaWANCNodeOtaa.ino](Arduino/nRF52840_LoRaWANCNodeOtaa/nRF52840_LoRaWANCNodeOtaa.ino)
 
