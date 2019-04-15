@@ -1,0 +1,7 @@
+{
+    "version": 2,
+    "name": "fhnw-iot-ttn-to-thingspeak",
+    "builds": [
+        { "src": "*.js", "use": "@now/node" }
+    ]
+}
