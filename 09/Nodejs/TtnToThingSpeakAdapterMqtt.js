@@ -1,35 +1,47 @@
-const mqtt = require('mqtt')
-const ttn = require('ttn');
+const mqtt = require('mqtt'); // npm install mqtt
+const ttn = require('ttn'); // npm install ttn
 
-const ttnAppId = 'TTN_APP_ID';
+//const ttnAppId = 'TTN_APP_ID';
+const ttnAppId = 'fhnw-iot';
 const ttnAccessKey = 'TTN_ACCESS_KEY';
 
 const tsBroker = "mqtt://mqtt.thingspeak.com/";
-const tsWriteApiKeys = {
-  "TTN_DEV_ID_1": ["WRITE_API_KEY_1", "CHANNEL_ID_1"],
-  "TTN_DEV_ID_2": ["WRITE_API_KEY_2", "CHANNEL_ID_2"],
-  "TTN_DEV_ID_3": ["WRITE_API_KEY_3", "CHANNEL_ID_3"]
+const ttnBroker = "eu.thethings.network";
+const ttnDevices = {
+  "fhnw-iot-0": { tsWriteApiKey: "4XLD8JL1H610N41V", tsChannelId: "758483" },
+  "TTN_DEV_ID_1": { tsWriteApiKey: "WRITE_API_KEY_1", tsChannelId: "CHANNEL_ID_1" },
+  "TTN_DEV_ID_2": { tsWriteApiKey: "WRITE_API_KEY_2", tsChannelId: "CHANNEL_ID_2" },
+  "TTN_DEV_ID_3": { tsWriteApiKey: "WRITE_API_KEY_3", tsChannelId: "CHANNEL_ID_3" },
 };
 
-const ttnClient = new ttn.Client('eu', ttnAppId, ttnAccessKey);
+const tsClient = mqtt.connect(tsBroker);
+const ttnClient = mqtt.connect(ttnBroker);
 
-ttnClient.on('message', function (devId, msg) {
-    const bytes = Buffer.from(msg.payload_raw, 'base64');
-    const x = ((bytes[0] << 8) | bytes[1]) / 100.0;
-    const y = ((bytes[2] << 8) | bytes[3]) / 100.0;
-    const tsMsgData = qs.stringify({
-      "api_key": writeApiKeys[msg.dev_id][0],
-      "field1": x,
-      "field2": y
-    });
+ttnClient.on("connect", () => { 
+  console.log("TTN client connected.");
+  for (let i = 0; i < ttnDevices.length; i++) {
+    const ttnTopic = ttnAppId + "/devices/" + ttnDevices[i] + "/up"
+    ttnClient.subscribe(ttnTopic);
+  }
+});
 
-  const tsClient = mqtt.connect(tsBroker);
+tsClient.on("connect", () => {
+  console.log("ThingSpeak client connected.");
+});
 
-  tsClient.on("connect", () => { // TODO: refactor
-    const topic =
-      "channels/" + writeApiKeys[msg.dev_id][1] + 
-      "/publish/" + writeApiKeys[msg.dev_id][0];
-    const message = tsMsgData;
-    tsClient.publish(topic, message);
+ttnClient.on("message", (topic, message) => {
+  console.log(message);
+  const bytes = Buffer.from(message.payload_raw, 'base64');
+  const x = ((bytes[0] << 8) | bytes[1]) / 100.0;
+  const y = ((bytes[2] << 8) | bytes[3]) / 100.0;
+  
+  const tsMsgData = qs.stringify({
+    "api_key": ttnDevices[msg.dev_id].tsWriteApiKey,
+    "field1": x,
+    "field2": y
   });
+  const tsTopic =
+    "channels/" + ttnDevices[msg.dev_id].tsChannelId + 
+    "/publish/" + ttnDevices[msg.dev_id].tsWriteApiKey;
+  tsClient.publish(tsTopic, tsMsgData);
 });
