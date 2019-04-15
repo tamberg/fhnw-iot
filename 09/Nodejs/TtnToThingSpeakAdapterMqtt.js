@@ -6,7 +6,7 @@ const ttnAppId = 'fhnw-iot';
 const ttnAccessKey = 'TTN_ACCESS_KEY';
 
 const tsBroker = "mqtt://mqtt.thingspeak.com/";
-const ttnBroker = "eu.thethings.network";
+const ttnBroker = "mqtt://eu.thethings.network/";
 const ttnDevices = {
   "fhnw-iot-0": { tsWriteApiKey: "4XLD8JL1H610N41V", tsChannelId: "758483" },
   "TTN_DEV_ID_1": { tsWriteApiKey: "WRITE_API_KEY_1", tsChannelId: "CHANNEL_ID_1" },
