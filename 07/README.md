@@ -7,8 +7,8 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 
 ## Examples
 ### Arduino
-- [MqttPubClient.ino](Arduino/MqttPubClient/MqttPubClient.ino)
-- [MqttSubClient.ino](Arduino/MqttSubClient/MqttSubClient.ino)
+- [ESP8266_MqttPubClient.ino](Arduino/ESP8266_MqttPubClient/ESP8266_MqttPubClient.ino)
+- [ESP8266_MqttSubClient.ino](Arduino/ESP8266_MqttSubClient/ESP8266_MqttSubClient.ino)
 
 ### Node.js
 - [MqttPubClient.js](Nodejs/MqttPubClient.js)
