@@ -13,9 +13,7 @@ const writeApiKeys = {
 };
 
 module.exports = (ttnReq, ttnRes) => {
-
   // Handle the (Webhook) Web request from TTN
-
   let ttnReqData = "";
 
   ttnReq.on('data', (data) => {
@@ -23,16 +21,21 @@ module.exports = (ttnReq, ttnRes) => {
   });
 
   ttnReq.on('end', () => {
-
-    // Convert the data from TTN to ThingSpeak data format
-
-    const msg = JSON.parse(ttnReqData);
-    const bytes = Buffer.from(msg.payload_raw, 'base64');
-    const x = ((bytes[0] << 8) | bytes[1]) / 100.0;
-    const y = ((bytes[2] << 8) | bytes[3]) / 100.0;
+    // Convert the data from TTN to the ThingSpeak data format
+    let msg = "";
+    let x = 0, y = 0;
+    try {
+      let msg = JSON.parse(ttnReqData);
+      const bytes = Buffer.from(msg.payload_raw, 'base64');
+      x = ((bytes[0] << 8) | bytes[1]) / 100.0;
+      y = ((bytes[2] << 8) | bytes[3]) / 100.0;
+    } catch (e) {
+      // Error: Reply to the original Web request from TTN
+      ttnRes.statusCode = 400;
+      ttnRes.end("400 Bad Request - " + e.message);
+    }
 
     // Prepare the Web request to ThingSpeak
-
     const tsReqData = qs.stringify({
       "api_key": writeApiKeys[msg.dev_id],
       "field1": x,
@@ -50,8 +53,6 @@ module.exports = (ttnReq, ttnRes) => {
       }
   	};
   
-    // Execute the Web request to ThingSpeak
-
     const tsReq = https.request(tsReqOptions, (tsRes) => {
       let tsResData = "";
 
@@ -60,26 +61,19 @@ module.exports = (ttnReq, ttnRes) => {
       });
 
       tsRes.on("end", () => {
-        console.log(tsResData);
-
         // Success: Reply to the original Web request from TTN
-
         ttnRes.statusCode = 200;
-        ttnRes.setHeader("Content-Type", "text/plain");
-        ttnRes.end("200 OK");
+        ttnRes.end("200 OK - " + tsResData);
       });
     });
 
     tsReq.on("error", (err) => {
-      console.log("Error: " + err.message);
-
       // Error: Reply to the original Web request from TTN
-
       ttnRes.statusCode = 500;
-      ttnRes.setHeader("Content-Type", "text/plain");
-      ttnRes.end("500 Internal Server Error");
+      ttnRes.end("500 Internal Server Error - " + err.message);
     });
 
+    // Execute the Web request to ThingSpeak
     tsReq.write(tsReqData);
     tsReq.end();
   });
