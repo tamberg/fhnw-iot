@@ -1,5 +1,11 @@
+// https://tamberg.mit-license.org/
+
 // https://thingspeak.com/channels/new => CHANNEL_IDs, WRITE_API_KEYs
 // https://console.thethingsnetwork.org/applications/TTN_APP_ID => TTN_DEVICE_IDs
+
+// Setup: TTN -Webhook HTTP POST-> TtnToThingSpeakAdapter -HTTP POST-> ThingSpeak
+// Local: $ npm install -g now-lambda-runner && now-lambda (e.g. via Yaler.net)
+// Using https://zeit.co/ serverless hosting: $ now
 
 const http = require("http"),
   https = require("https"),
