@@ -1,0 +1,7 @@
+{
+    "version": 2,
+    "name": "nodejs-web-request",
+    "builds": [
+        { "src": "*.js", "use": "@now/node" }
+    ]
+}
