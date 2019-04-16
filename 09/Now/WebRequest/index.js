@@ -1,6 +1,6 @@
 var http = require("http");
 
-module.exports = async (req, res) => {
+module.exports = (req, res) => {
   http.get("http://tmb.gr/hello.html", (res2) => {
     let data = "";
 
