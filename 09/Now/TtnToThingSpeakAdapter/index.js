@@ -5,9 +5,8 @@ const http = require("http"),
   https = require("https"),
   qs = require("querystring");
 
-const appId = "fhnw-iot"; //"TTN_APP_ID";
+const appId = "TTN_APP_ID";
 const writeApiKeys = {
-  "fhnw-iot-arduino-1": "4XLD8JL1H610N41V", // https://thingspeak.com/channels/758483
   "TTN_DEVICE_ID_1": "WRITE_API_KEY_1", // CHANNEL_ID_1
   "TTN_DEVICE_ID_2": "WRITE_API_KEY_2", // CHANNEL_ID_2
   "TTN_DEVICE_ID_3": "WRITE_API_KEY_3", // CHANNEL_ID_3
@@ -16,8 +15,6 @@ const writeApiKeys = {
 module.exports = (ttnReq, ttnRes) => {
 
   // Handle the (Webhook) Web request from TTN
-
-//  console.log(ttnReq);
 
   let ttnReqData = "";
 
@@ -30,10 +27,7 @@ module.exports = (ttnReq, ttnRes) => {
     // Convert the data from TTN to ThingSpeak data format
 
     const msg = JSON.parse(ttnReqData);
-//    console.log(msg);
-
     const bytes = Buffer.from(msg.payload_raw, 'base64');
-    // assume two float * 100, high/low byte
     const x = ((bytes[0] << 8) | bytes[1]) / 100.0;
     const y = ((bytes[2] << 8) | bytes[3]) / 100.0;
 
@@ -45,9 +39,6 @@ module.exports = (ttnReq, ttnRes) => {
       "field2": y
     });
 
-//    console.log(bytes);
-//    console.log(tsReqData);
-
     const tsReqOptions = {
       hostname: "api.thingspeak.com",
       path: "/update",
@@ -57,7 +48,7 @@ module.exports = (ttnReq, ttnRes) => {
         "Content-Type": "application/x-www-form-urlencoded",
         "Content-Length": Buffer.byteLength(tsReqData)
       }
-	};
+  	};
   
     // Execute the Web request to ThingSpeak
 
@@ -69,7 +60,7 @@ module.exports = (ttnReq, ttnRes) => {
       });
 
       tsRes.on("end", () => {
-//        console.log(tsResData);
+        console.log(tsResData);
 
         // Success: Reply to the original Web request from TTN
 
