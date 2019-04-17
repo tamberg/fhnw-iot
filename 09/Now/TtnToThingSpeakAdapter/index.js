@@ -31,7 +31,7 @@ module.exports = (ttnReq, ttnRes) => {
     let msg = "";
     let x = 0, y = 0;
     try {
-      let msg = JSON.parse(ttnReqData);
+      msg = JSON.parse(ttnReqData);
       const bytes = Buffer.from(msg.payload_raw, 'base64');
       x = ((bytes[0] << 8) | bytes[1]) / 100.0;
       y = ((bytes[2] << 8) | bytes[3]) / 100.0;
@@ -57,7 +57,7 @@ module.exports = (ttnReq, ttnRes) => {
         "Content-Type": "application/x-www-form-urlencoded",
         "Content-Length": Buffer.byteLength(tsReqData)
       }
-  	};
+    };
   
     const tsReq = https.request(tsReqOptions, (tsRes) => {
       let tsResData = "";
