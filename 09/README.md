@@ -10,6 +10,11 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [TtnToThingSpeakAdapter.js](Nodejs/TtnToThingSpeakAdapter.js)
 - [TtnToThingSpeakAdapterMqtt.js](Nodejs/TtnToThingSpeakAdapterMqtt.js)
 
+### Now
+- [TtnToThingSpeakAdapter/index.js](Now/TtnToThingSpeakAdapter/index.js)
+- [WebRequest/index.js](Now/WebRequest/index.js)
+- [HelloWorld/index.js](Now/HelloWorld/index.js)
+
 ## Hands-on
 - [Hands-on Lesson 9](../../../../fhnw-iot-work-09/blob/master/README.md)
 

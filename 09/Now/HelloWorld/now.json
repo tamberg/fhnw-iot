@@ -1,0 +1,7 @@
+{
+    "version": 2,
+    "name": "nodejs-hello-world",
+    "builds": [
+        { "src": "*.js", "use": "@now/node" }
+    ]
+}
