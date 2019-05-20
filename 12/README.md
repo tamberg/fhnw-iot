@@ -9,6 +9,7 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 ### Node.js
 - [blink.js](Nodejs/blink.js)
 - [button.js](Nodejs/button.js)
+- [camera.js](Nodejs/camera.js)
 
 ### Python
 - [blink.py](Python/blink.py)
