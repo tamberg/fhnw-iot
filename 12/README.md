@@ -16,6 +16,7 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [button.py](Python/button.py)
 - [analog.py](Python/analog.py)
 - [rotary.py](Python/rotary.py)
+- [tm1637.py](Python/tm1637.py)
 
 ## Hands-on
 - [Hands-on Lesson 12](../../../../fhnw-iot-work-12/blob/master/README.md)
