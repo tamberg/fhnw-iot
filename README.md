@@ -2,8 +2,6 @@
 Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https://twitter.com/tamberg) for [FHNW](https://www.fhnw.ch/).
 
 ## Slides and code examples
-> Work in progress...
-
 0. [Syllabus](00/README.md)
 1. [Introduction to the Internet of Things](01/README.md)
 2. [Microcontrollers, Sensors & Actuators](02/README.md)
