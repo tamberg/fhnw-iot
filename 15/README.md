@@ -8,4 +8,4 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [Project Example](https://github.com/tamberg/fhnw-iot-project-example)
 
 ## Demo Day
-- [Demo Day](http://www.tamberg.org/fhnw/2019/IoT14DemoDay.pdf) TODO
+- [Demo Day](http://www.tamberg.org/fhnw/2019/hs/IoT15DemoDay.pdf) TODO
