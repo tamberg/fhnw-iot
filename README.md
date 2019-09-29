@@ -26,6 +26,7 @@ This course is based on the following hardware:
 * [Feather Huzzah ESP8266](./../../wiki/Feather-Huzzah-ESP8266)
 * [Feather nRF52840 Express](./../../wiki/Feather-nRF52840-Express)
 * [FeatherWing RFM95W](./../../wiki/FeatherWing-RFM95W)
+* [Grove Adapters](./../../wikie/Grove-Adapters) for Feather & Pi
 * [Grove Sensors](./../../wiki/Grove-Sensors) & [Actuators](./../../wiki/Grove-Actuators)
 
 Why? See [IoT Hardware for CS bachelor students](http://www.tamberg.org/fhnw/2019/IoTHardwareForCSBachelorStudents.pdf).
