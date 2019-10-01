@@ -1,5 +1,4 @@
 #include <ESP8266WiFi.h>
-#include <WiFiClientSecure.h>
 #include <time.h>
 
 // based on https://github.com/SensorsIot/HTTPS-for-Makers licensed under
@@ -17,6 +16,7 @@ const int port = 443;
 
 void setup() {
   Serial.begin(115200);
+  //Serial.setDebugOutput(true);
   Serial.print("\nConnecting to network ");
   Serial.println(ssid);
   WiFi.mode(WIFI_STA);
@@ -38,7 +38,7 @@ void setup() {
     delay(500);
   }
 
-  WiFiClientSecure client; // use TLS
+  BearSSL::WiFiClientSecure client; // use TLS
   Serial.println("Setting CA certificate ");
   if (!client.setCACert_P(caCert, caCertLen)) {
     Serial.println("Setting CA certificate failed");
