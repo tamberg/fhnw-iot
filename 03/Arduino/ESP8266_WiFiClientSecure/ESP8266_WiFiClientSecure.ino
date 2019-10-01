@@ -1,11 +1,11 @@
 #include <ESP8266WiFi.h>
-#include <WiFiClientSecure.h>
 
 const char *ssid = "MY_SSID"; // TODO
 const char *password = "MY_PASSWORD"; // TODO
 
 void setup() {
   Serial.begin(115200);
+  //Serial.setDebugOutput(true);
   Serial.print("\nConnecting to network ");
   Serial.println(ssid);
   WiFi.mode(WIFI_STA);
@@ -21,7 +21,8 @@ void setup() {
   const int port = 443;
 
   // connect to remote host
-  WiFiClientSecure client; // use TLS
+  BearSSL::WiFiClientSecure client; // use TLS
+  client.setInsecure(); // no cert validation
   if (client.connect(host, port)) {
 
     // send HTTPS request
