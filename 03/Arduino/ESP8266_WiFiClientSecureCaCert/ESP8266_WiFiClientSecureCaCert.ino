@@ -39,6 +39,7 @@ void setup() {
   }
 
   BearSSL::WiFiClientSecure client; // use TLS
+  //client.allowSelfSignedCerts();
   Serial.println("Setting CA certificate ");
   if (!client.setCACert_P(caCert, caCertLen)) {
     Serial.println("Setting CA certificate failed");
