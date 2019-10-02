@@ -1,4 +1,4 @@
-// To get the SHA-1 fingerprint, check the certificate in your browser or us the following command on Linux or MacOS:
+// To get the SHA-1 fingerprint, check the certificate in your browser or use the following command on Linux or MacOS:
 // openssl s_client -connect www.howsmyssl.com:443 < /dev/null 2>/dev/null | openssl x509 -fingerprint -noout -in /dev/stdin
 
 #include <ESP8266WiFi.h>
