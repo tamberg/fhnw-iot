@@ -6,14 +6,14 @@
 
 #include "DHTesp.h"
 
-#define DHT_PIN 5 // Grove adapter I2C_1 or _2 used as D6
-#define DHT_MODEL DHTesp::DHT11
+const int dhtPin = 5; // Grove adapter I2C_1 or _2 used as D6
+const DHTesp::DHT_MODEL_t dhtModel = DHTesp::DHT11;
 
 DHTesp dht;
 
 void setup() {
   Serial.begin(115200);
-  dht.setup(DHT_PIN, DHT_MODEL);
+  dht.setup(dhtPin, dhtModel);
 }
 
 void loop() {

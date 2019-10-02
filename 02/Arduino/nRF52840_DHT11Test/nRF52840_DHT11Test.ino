@@ -8,10 +8,10 @@
 
 #include "DHT.h"
 
-#define DHT_PIN 5 // Grove adapter D2
-#define DHT_TYPE DHT11
+const int dhtPin = 5; // Grove adapter D2
+const int dhtType = DHT11;
 
-DHT dht(DHT_PIN, DHT_TYPE);
+DHT dht(dhtPin, dhtType);
 
 void setup() {
   Serial.begin(115200);
