@@ -1,25 +1,27 @@
-// Test code for Grove DHT11 humidity/temperature sensor on ESP8266
+// Test code for Grove DHT11 humidity/temperature sensor on nRF52840
 
 // https://github.com/tamberg/fhnw-iot/wiki/Grove-Sensors#temperature--humidity-sensor-dht11
-// https://github.com/tamberg/fhnw-iot/wiki/Feather-Huzzah-ESP8266
+// https://github.com/tamberg/fhnw-iot/wiki/Feather-nRF52840-Express
 // https://github.com/tamberg/fhnw-iot/wiki/Grove-Adapters#pinout
 
-#include "DHTesp.h"
+// Based on example code written by ladyada, public domain
 
-#define DHT_PIN 5 // Grove adapter I2C_1 or _2 used as D6
-#define DHT_MODEL DHTesp::DHT11
+#include "DHT.h"
 
-DHTesp dht;
+#define DHT_PIN 5 // Grove adapter D2
+#define DHT_TYPE DHT11
+
+DHT dht(DHT_PIN, DHT_TYPE);
 
 void setup() {
   Serial.begin(115200);
-  dht.setup(DHT_PIN, DHT_MODEL);
+  dht.begin();
 }
 
 void loop() {
   // Readings take about 250 ms, may be up to 2 s old
-  float humi = dht.getHumidity(); // %
-  float temp = dht.getTemperature(); // *C
+  float humi = dht.readHumidity(); // %
+  float temp = dht.readTemperature(); // *C
 
   if (isnan(humi) || isnan(temp)) {
     Serial.print("Failed to read from DHT11 sensor\n");
@@ -30,5 +32,5 @@ void loop() {
     Serial.print(" *C\n");
   }
 
-  delay(dht.getMinimumSamplingPeriod() + 200); // ms
+  delay(2000); // ms
 }
