@@ -26,7 +26,7 @@ void setup() {
 
 void loop() {
   long t = millis();
-  if (t - t0 > 30 * 1000) {
+  if (t - t0 > 30 * 1000) { // every 30s
     t0 = t;
 
     // read sensor values
