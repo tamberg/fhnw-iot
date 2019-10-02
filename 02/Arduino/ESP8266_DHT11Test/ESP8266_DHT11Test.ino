@@ -14,8 +14,6 @@ void loop() {
   float humi = dht.getHumidity();
   float temp = dht.getTemperature();
 
-  Serial.print(millis());
-  Serial.print(", ");
   Serial.print(dht.getStatusString());
   Serial.print(", ");
   Serial.print(humi, 1);
