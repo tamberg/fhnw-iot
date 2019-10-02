@@ -4,7 +4,7 @@ const char *ssid = "MY_SSID"; // TODO
 const char *password = "MY_PASSWORD"; // TODO
 
 const char *verb = "POST";
-const char *path = "/update?api_key=YYX5BN615D9ZOLNA";
+const char *path = "/update?api_key=WRITE_API_KEY";
 const char *host = "api.thingspeak.com";
 const int port = 443;
 
