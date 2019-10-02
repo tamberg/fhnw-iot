@@ -47,8 +47,8 @@ void setup() {
     while (client.connected() || client.available()) {
       int ch = client.read();
       while (ch >= 0) {
-          Serial.print((char) ch);
-          ch = client.read();
+        Serial.print((char) ch);
+        ch = client.read();
       }
     }
   } else {
