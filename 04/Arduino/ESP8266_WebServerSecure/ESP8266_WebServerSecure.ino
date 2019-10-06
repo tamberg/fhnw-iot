@@ -72,13 +72,15 @@ void setup() {
 
   server.setRSACert(
     new BearSSL::X509List(serverCert), 
-    new BearSSL::PrivateKey(serverKey));  
+    new BearSSL::PrivateKey(serverKey));
+
   server.begin();
   Serial.print("Listening on port ");
   Serial.println(port);
 }
 
 void loop() {
+  //WiFiClient client = server.available(); // does not work
   WiFiClientSecure client = server.available();
   if (client && client.connected()) {
     Serial.println("Connection accepted, remote IP = ");
