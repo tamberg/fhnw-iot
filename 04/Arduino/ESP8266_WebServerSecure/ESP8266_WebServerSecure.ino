@@ -1,14 +1,10 @@
 #include <ESP8266WiFi.h>
-#include <ESP8266WebServerSecure.h>
 
 const char *ssid = "MY_SSID"; // TODO
 const char *password = "MY_PASSWORD"; // TODO
 const int port = 443;
 
-const char *basicAuthUsername = "MY_USERNAME"; // TODO
-const char *basicAuthPassword = "MY_PASSWORD"; // TODO
-
-BearSSL::ESP8266WebServerSecure server(port);
+BearSSL::WiFiServerSecure server(port);
 
 // TODO: create your own self signed certificate
 // $ openssl req -x509 -nodes -newkey rsa:2048 -keyout key.pem -out cert.pem -days 4096
@@ -62,16 +58,6 @@ znybL/IBQctH68BjC4r940b2
 -----END PRIVATE KEY-----
 )EOF";
 
-void handleRoot() {
-  if (server.authenticate(basicAuthUsername, basicAuthPassword)) {
-    server.send(200, "text/plain", "It works!");
-  } else {
-    // sends "401 Unauthorized", with a
-    // "WWW-Authenticate: Basic" header
-    server.requestAuthentication();
-  }
-}
-
 void setup() {
   Serial.begin(115200);
   Serial.print("\nConnecting to network ");
@@ -86,16 +72,33 @@ void setup() {
 
   server.setRSACert(
     new BearSSL::X509List(serverCert), 
-    new BearSSL::PrivateKey(serverKey));
-
-  // add one handler per path
-  server.on("/", handleRoot);
-  
+    new BearSSL::PrivateKey(serverKey));  
   server.begin();
   Serial.print("Listening on port ");
   Serial.println(port);
 }
 
 void loop() {
-  server.handleClient();
+  WiFiClientSecure client = server.available();
+  if (client && client.connected()) {
+    Serial.println("Connection accepted, remote IP = ");
+    Serial.println(client.remoteIP());
+
+    // Read HTTP request
+    int ch = client.read();
+    while (ch != -1) {
+      Serial.print((char) ch);
+      ch = client.read();
+    }
+    
+    // Send HTTP response
+    client.print("HTTP/1.1 200 OK\r\n");
+    client.print("Content-Length: 9\r\n");
+    client.print("Connection: close\r\n");
+    client.print("\r\n");
+    client.print("It works!");
+
+    delay(1); // Give Web client time to receive data
+    client.stop();
+  }
 }
