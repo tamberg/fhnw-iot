@@ -5,6 +5,9 @@ const char *ssid = "MY_SSID"; // TODO
 const char *password = "MY_PASSWORD"; // TODO
 const int port = 443;
 
+const char *basicAuthUsername = "MY_USERNAME"; // TODO
+const char *basicAuthPassword = "MY_PASSWORD"; // TODO
+
 BearSSL::ESP8266WebServerSecure server(port);
 
 // TODO: create your own self signed certificate
@@ -60,7 +63,13 @@ znybL/IBQctH68BjC4r940b2
 )EOF";
 
 void handleRoot() {
-  server.send(200, "text/plain", "It works!");
+  if (server.authenticate(basicAuthUsername, basicAuthPassword)) {
+    server.send(200, "text/plain", "It works!");
+  } else {
+    // sends "401 Unauthorized", with a
+    // "WWW-Authenticate: Basic" header
+    server.requestAuthentication();
+  }
 }
 
 void setup() {
@@ -70,7 +79,7 @@ void setup() {
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
+    delay(100);
   }
   Serial.print("Connected to network, local IP = "); 
   Serial.println(WiFi.localIP());
@@ -78,7 +87,10 @@ void setup() {
   server.setRSACert(
     new BearSSL::X509List(serverCert), 
     new BearSSL::PrivateKey(serverKey));
+
+  // add one handler per path
   server.on("/", handleRoot);
+  
   server.begin();
   Serial.print("Listening on port ");
   Serial.println(port);
