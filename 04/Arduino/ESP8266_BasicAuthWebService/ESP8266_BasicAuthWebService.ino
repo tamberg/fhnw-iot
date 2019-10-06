@@ -16,7 +16,7 @@ void setup() {
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
+    delay(100);
   }
   Serial.print("Connected to network, local IP = "); 
   Serial.println(WiFi.localIP());
