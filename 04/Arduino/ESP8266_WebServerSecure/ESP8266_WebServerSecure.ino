@@ -78,8 +78,8 @@ void setup() {
   Serial.println(WiFi.localIP());
 
   server.setRSACert(
-    new BearSSLX509List(serverCert), 
-    new BearSSLPrivateKey(serverKey));
+    new BearSSL::X509List(serverCert), 
+    new BearSSL::PrivateKey(serverKey));
   server.on("/", handleRoot);
   server.begin();
   Serial.print("Listening on port ");
