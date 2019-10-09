@@ -1,5 +1,5 @@
 // https://developers.meethue.com/develop/hue-api/
-// $ curl -vX PUT https://HUE_BRIDGE_IP/api/newdeveloper/lights/_/state -d '{"on":false}'
+// $ curl -vX PUT https://HUE_BRIDGE_IP/api/newdeveloper/lights/2/state -d '{"on":false}'
 
 #include <ESP8266WiFi.h>
 
