@@ -21,7 +21,8 @@ BLECharacteristic bodySensorLocationCharacteristic = BLECharacteristic(0x2A38);
 
 void connectedCallback(uint16_t connectionHandle) {
   char centralName[32] = { 0 };
-  Bluefruit.Gap.getPeerName(connectionHandle, centralName, sizeof(centralName));
+  BLEConnection *connection = Bluefruit.Connection(connectionHandle);
+  connection->getPeerName(centralName, sizeof(centralName));
   Serial.print(connectionHandle);
   Serial.print(", connected to ");
   Serial.print(centralName);
@@ -36,10 +37,10 @@ void disconnectedCallback(uint16_t connectionHandle, uint8_t reason) {
   Serial.println("Advertising ...");
 }
 
-void cccdCallback(BLECharacteristic& characteristic, uint16_t cccdValue) {
-  if (characteristic.uuid == heartRateMeasurementCharacteristic.uuid) {
+void cccdCallback(uint16_t connectionHandle, BLECharacteristic* characteristic, uint16_t cccdValue) {
+  if (characteristic->uuid == heartRateMeasurementCharacteristic.uuid) {
     Serial.print("Heart Rate Measurement 'Notify', ");
-    if (characteristic.notifyEnabled()) {
+    if (characteristic->notifyEnabled()) {
       Serial.println("enabled");
     } else {
       Serial.println("disabled");
@@ -90,8 +91,8 @@ void setup() {
 
   Bluefruit.begin();
   Bluefruit.setName("nRF52840");
-  Bluefruit.setConnectCallback(connectedCallback);
-  Bluefruit.setDisconnectCallback(disconnectedCallback);
+  Bluefruit.Periph.setConnectCallback(connectedCallback);
+  Bluefruit.Periph.setDisconnectCallback(disconnectedCallback);
 
   deviceInfoService.setManufacturer("Adafruit Industries");
   deviceInfoService.setModel("Feather nRF52840 Express");
