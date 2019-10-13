@@ -75,8 +75,6 @@ void setupUartService() {
   txCharacteristic.setMaxLen(mtu);
   txCharacteristic.setCccdWriteCallback(cccdCallback);  // Optionally capture CCCD updates
   txCharacteristic.begin();
-  uint8_t hrmData[2] = { 0b00000110, 0x40 }; // Use 8-bit values, sensor connected and detected
-  txCharacteristic.notify(hrmData, 2); // Use .notify instead of .write
 
   rxCharacteristic.setProperties(CHR_PROPS_WRITE | CHR_PROPS_WRITE_WO_RESP);
   rxCharacteristic.setPermission(SECMODE_NO_ACCESS, SECMODE_OPEN);
