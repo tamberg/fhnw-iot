@@ -23,11 +23,11 @@ void scanCallback(ble_gap_evt_adv_report_t* report) {
   }
 }
 
-void connectCallback(uint16_t conn_handle) {
+void connectCallback(uint16_t connHandle) {
   Serial.println("Connected");
 
   Serial.println("Dicovering device information service... ");
-  if (deviceInfoServiceClient.discover(conn_handle)) {
+  if (deviceInfoServiceClient.discover(connHandle)) {
     char manuName[mtu];
     memset(manuName, 0, sizeof(manuName));
     if (deviceInfoServiceClient.getManufacturer(manuName, sizeof(manuName))) {
@@ -45,7 +45,7 @@ void connectCallback(uint16_t conn_handle) {
   }
 
   Serial.println("Dicovering battery service... ");
-  if (batteryServiceClient.discover(conn_handle)) {
+  if (batteryServiceClient.discover(connHandle)) {
     Serial.print("Battery level: ");
     Serial.print(batteryServiceClient.read());
     Serial.println("%");
@@ -54,16 +54,16 @@ void connectCallback(uint16_t conn_handle) {
   }
 
   Serial.println("Discovering UART service... ");
-  if (uartServiceClient.discover(conn_handle)) {
+  if (uartServiceClient.discover(connHandle)) {
     uartServiceClient.enableTXD();
     Serial.println("Ready to receive from peripheral");
   } else {
     Serial.println("Not found. Disconnecting...");
-    Bluefruit.disconnect(conn_handle);
+    Bluefruit.disconnect(connHandle);
   }  
 }
 
-void disconnectCallback(uint16_t conn_handle, uint8_t reason) {
+void disconnectCallback(uint16_t connHandle, uint8_t reason) {
   Serial.print("Disconnected, reason = ");
   Serial.println(reason);
 }
