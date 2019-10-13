@@ -133,7 +133,7 @@ void loop() {
         Serial.print("tx: ");
         int i = 0;
         while (i < bytesRead) {
-          Serial.print((char) txData[i]);
+          Serial.print((char) txData[i]); // echo
           i++;
         }
         Serial.print("\n");
