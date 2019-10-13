@@ -26,25 +26,25 @@ BLEService uartService = BLEService(uartServiceUuid);
 BLECharacteristic rxCharacteristic = BLECharacteristic(rxCharacteristicUuid);
 BLECharacteristic txCharacteristic = BLECharacteristic(txCharacteristicUuid);
 
-void connectedCallback(uint16_t connectionHandle) {
+void connectedCallback(uint16_t connHandle) {
   char centralName[32] = { 0 };
-  BLEConnection *connection = Bluefruit.Connection(connectionHandle);
+  BLEConnection *connection = Bluefruit.Connection(connHandle);
   connection->getPeerName(centralName, sizeof(centralName));
-  Serial.print(connectionHandle);
+  Serial.print(connHandle);
   Serial.print(", connected to ");
   Serial.print(centralName);
   Serial.println();
 }
 
-void disconnectedCallback(uint16_t connectionHandle, uint8_t reason) {
-  Serial.print(connectionHandle);
+void disconnectedCallback(uint16_t connHandle, uint8_t reason) {
+  Serial.print(connHandle);
   Serial.print(" disconnected, reason = ");
   Serial.println(reason); // see https://github.com/adafruit/Adafruit_nRF52_Arduino
   // /blob/master/cores/nRF5/nordic/softdevice/s140_nrf52_6.1.1_API/include/ble_hci.h
   Serial.println("Advertising ...");
 }
 
-void cccdCallback(uint16_t connectionHandle, BLECharacteristic* characteristic, uint16_t cccdValue) {
+void cccdCallback(uint16_t connHandle, BLECharacteristic* characteristic, uint16_t cccdValue) {
   if (characteristic->uuid == txCharacteristic.uuid) {
     Serial.print("UART 'Notify', ");
     if (characteristic->notifyEnabled()) {
@@ -55,7 +55,7 @@ void cccdCallback(uint16_t connectionHandle, BLECharacteristic* characteristic, 
   }
 }
 
-void writeCallback(uint16_t connectionHandle, BLECharacteristic* characteristic, uint8_t* rxData, uint16_t len) {
+void writeCallback(uint16_t connHandle, BLECharacteristic* characteristic, uint8_t* rxData, uint16_t len) {
   if (characteristic->uuid == rxCharacteristic.uuid) {
     Serial.print("rx: ");
     int i = 0;
