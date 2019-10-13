@@ -26,30 +26,25 @@ void scanCallback(ble_gap_evt_adv_report_t* report) {
 void connectCallback(uint16_t conn_handle) {
   Serial.println("Connected");
 
-  Serial.print("Dicovering Device Information ... ");
+  Serial.println("Dicovering device information service... ");
   if (deviceInfoServiceClient.discover(conn_handle)) {
-    Serial.println("Found it");
-    char buffer[32+1];
-
-    // read and print out Manufacturer
-    memset(buffer, 0, sizeof(buffer));
-    if (deviceInfoServiceClient.getManufacturer(buffer, sizeof(buffer))) {
+    char manuName[mtu];
+    memset(manuName, 0, sizeof(manuName));
+    if (deviceInfoServiceClient.getManufacturer(manuName, sizeof(manuName))) {
       Serial.print("Manufacturer: ");
-      Serial.println(buffer);
+      Serial.println(manuName);
     }
-
-    // read and print out Model Number
-    memset(buffer, 0, sizeof(buffer));
-    if (deviceInfoServiceClient.getModel(buffer, sizeof(buffer))) {
+    char modelName[mtu];
+    memset(modelName, 0, sizeof(modelName));
+    if (deviceInfoServiceClient.getModel(modelName, sizeof(modelName))) {
       Serial.print("Model: ");
-      Serial.println(buffer);
+      Serial.println(modelName);
     }
-    Serial.println();
   } else {
     Serial.println("Not found.");
   }
 
-  Serial.print("Dicovering battery service... ");
+  Serial.println("Dicovering battery service... ");
   if (batteryServiceClient.discover(conn_handle)) {
     Serial.print("Battery level: ");
     Serial.print(batteryServiceClient.read());
@@ -58,7 +53,7 @@ void connectCallback(uint16_t conn_handle) {
     Serial.println("Not found.");  
   }
 
-  Serial.print("Discovering UART service... ");
+  Serial.println("Discovering UART service... ");
   if (uartServiceClient.discover(conn_handle)) {
     uartServiceClient.enableTXD();
     Serial.println("Ready to receive from peripheral");
