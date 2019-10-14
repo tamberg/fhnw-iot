@@ -105,16 +105,13 @@ void setup() {
 void loop() {
   if (Bluefruit.Central.connected()) {
     if (uartServiceClient.discovered()) {
-      Serial.print("tx: ");
       while (Serial.available()) {
-        uint8_t txData[mtu];
+        uint8_t txData[mtu + 1];
         size_t bytesRead = Serial.readBytes(txData, mtu);
-        int i = 0;
-        while (i < bytesRead) {
-          Serial.print((char) txData[i]); // echo
-          uartServiceClient.print((char) txData[i]);
-          i++;
-        }
+        txData[bytesRead] = '\0';
+        uartServiceClient.print((char *) txData);
+        Serial.print("tx: ");
+        Serial.print((char *) txData);
         Serial.print("\n");
       }
     }
