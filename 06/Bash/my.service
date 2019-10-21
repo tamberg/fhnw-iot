@@ -1,0 +1,11 @@
+[Unit]
+Description=my service on port 8080
+
+[Service]
+WorkingDirectory=/home/pi/fhnw-iot/06/Nodejs/
+ExecStart=/usr/local/bin/node WebService.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
