@@ -48,14 +48,3 @@ exports.handler = function (event, context) {
     alexa.execute();
 };
 
-// package.json
-
-{
-  "name": "alexa-skill-kit-sdk-factskill",
-  "version": "1.0.0",
-  "private": true,
-  "dependencies": {
-    "alexa-sdk": "^1.0.10"
-  }
-}
-
