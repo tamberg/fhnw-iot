@@ -1,4 +1,4 @@
-// SayHelloAlexaSkill, licenced under http://www.apache.org/licenses/LICENSE-2.0
+// FishTankAlexaSkill, licenced under http://www.apache.org/licenses/LICENSE-2.0
 
 // Based on https://github.com/alexa/skill-sample-nodejs-hello-world
 
@@ -17,7 +17,7 @@
 //      Date Slot: AMAZON.DATE
 
 // Setup:
-// $ cd SayHelloAlexaSkill
+// $ cd FishTankAlexaSkill
 // $ npm install ask-sdk-core
 // $ npm install ask-sdk-model
 // $ npm install ask-sdk-express-adapter
