@@ -78,7 +78,8 @@ const GetFedAtDateIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'GetFedAtDateIntent';
     },
     handle(handlerInput) {
-        const speakOutput = 'You did not feed them yet, on date.';
+        const date = handlerInput.requestEnvelope.request.intent.slots.Date.value;
+        const speakOutput = `You did not feed them on ${date}.`;
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .getResponse();
