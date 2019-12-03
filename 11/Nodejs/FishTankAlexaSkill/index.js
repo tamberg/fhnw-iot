@@ -1,11 +1,31 @@
+// SayHelloAlexaSkill, licenced under Apache-2.0
+
+// Based on https://github.com/alexa/skill-sample-nodejs-hello-world
+
+// See also https://developer.amazon.com/alexa/console/ask
+
+// Intents & Utterances:
+//  GetLastFeeding
+//      when I gave food to the fish
+//      when I last fed the fish
+//  GetFedToday
+//      did I give the fish any food
+//      if I fed the fish
+//  GetFedAtDate
+//      did I feed the fish {Date}
+//      if I fed the fish {Date}
+//      Date Slot: AMAZON.DATE
+
+// Setup:
+// $ cd SayHelloAlexaSkill
 // $ npm install ask-sdk-core
 // $ npm install ask-sdk-model
 // $ npm install ask-sdk-express-adapter
 // $ npm install express
 
-// This sample demonstrates handling intents from an Alexa skill using the Alexa Skills Kit SDK (v2).
-// Please visit https://alexa.design/cookbook for additional examples on implementing slots, dialog management,
-// session persistence, api calls, and more.
+// Run:
+// $ node index.js
+
 const Alexa = require('ask-sdk-core');
 
 const express = require('express');
@@ -18,26 +38,53 @@ const LaunchRequestHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
     },
     handle(handlerInput) {
-        const speakOutput = 'Welcome, you can say Hello or Help. Which would you like to try?';
+        const speakOutput = 'Welcome, you can ask me to say Hello.';
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt(speakOutput)
             .getResponse();
     }
 };
-const HelloWorldIntentHandler = {
+
+const GetLastFeedingIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'HelloWorldIntent';
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'GetLastFeedingIntent';
     },
     handle(handlerInput) {
-        const speakOutput = 'Hello World!';
+        const speakOutput = 'You did not feed them yet, at all.';
         return handlerInput.responseBuilder
             .speak(speakOutput)
-            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
             .getResponse();
     }
 };
+
+const GetFedTodayIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'GetFedTodayIntent';
+    },
+    handle(handlerInput) {
+        const speakOutput = 'You did not feed them yet, today.';
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .getResponse();
+    }
+};
+
+const GetFedAtDateIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'GetFedAtDateIntent';
+    },
+    handle(handlerInput) {
+        const speakOutput = 'You did not feed them yet, on date.';
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .getResponse();
+    }
+};
+
 const HelpIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
@@ -52,6 +99,7 @@ const HelpIntentHandler = {
             .getResponse();
     }
 };
+
 const CancelAndStopIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
@@ -65,6 +113,7 @@ const CancelAndStopIntentHandler = {
             .getResponse();
     }
 };
+
 const SessionEndedRequestHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'SessionEndedRequest';
@@ -75,35 +124,13 @@ const SessionEndedRequestHandler = {
     }
 };
 
-// The intent reflector is used for interaction model testing and debugging.
-// It will simply repeat the intent the user said. You can create custom handlers
-// for your intents by defining them above, then also adding them to the request
-// handler chain below.
-const IntentReflectorHandler = {
-    canHandle(handlerInput) {
-        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest';
-    },
-    handle(handlerInput) {
-        const intentName = Alexa.getIntentName(handlerInput.requestEnvelope);
-        const speakOutput = `You just triggered ${intentName}`;
-
-        return handlerInput.responseBuilder
-            .speak(speakOutput)
-            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
-            .getResponse();
-    }
-};
-
-// Generic error handling to capture any syntax or routing errors. If you receive an error
-// stating the request handler chain is not found, you have not implemented a handler for
-// the intent being invoked or included it in the skill builder below.
 const ErrorHandler = {
     canHandle() {
         return true;
     },
     handle(handlerInput, error) {
         console.log(`~~~~ Error handled: ${error.stack}`);
-        const speakOutput = `Sorry, I had trouble doing what you asked. Please try again.`;
+        const speakOutput = 'Sorry, I had trouble doing what you asked. Please try again.';
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
@@ -112,24 +139,18 @@ const ErrorHandler = {
     }
 };
 
-// The SkillBuilder acts as the entry point for your skill, routing all request and response
-// payloads to the handlers above. Make sure any new handlers or interceptors you've
-// defined are included below. The order matters - they're processed top to bottom.
-//exports.handler = Alexa.SkillBuilders.custom()
-//    ...
-//    .lambda();
-
 const skillBuilder = Alexa.SkillBuilders.custom()
     .addRequestHandlers(
         LaunchRequestHandler,
-        HelloWorldIntentHandler,
+        GetLastFeedingIntentHandler,
+        GetFedTodayIntentHandler,
+        GetFedAtDateIntentHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
-        SessionEndedRequestHandler,
-        IntentReflectorHandler, // make sure IntentReflectorHandler is last so it doesn't override your custom int$
+        SessionEndedRequestHandler
     )
     .addErrorHandlers(
-        ErrorHandler,
+        ErrorHandler
     );
 
 const skill = skillBuilder.create();
@@ -137,4 +158,3 @@ const adapter = new ExpressAdapter(skill, true, true);
 
 app.post('/', adapter.getRequestHandlers());
 app.listen(8080);
-
