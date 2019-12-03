@@ -1,4 +1,4 @@
-// SayHelloAlexaSkill, licenced under Apache-2.0
+// SayHelloAlexaSkill, licenced under http://www.apache.org/licenses/LICENSE-2.0
 
 // Based on https://github.com/alexa/skill-sample-nodejs-hello-world
 

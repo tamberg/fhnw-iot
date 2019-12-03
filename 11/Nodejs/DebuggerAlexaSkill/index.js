@@ -1,6 +1,8 @@
-// DebuggerAlexaSkill, licenced under Apache-2.0
+// DebuggerAlexaSkill, licenced under http://www.apache.org/licenses/LICENSE-2.0
 
 // Based on https://github.com/alexa/skill-sample-nodejs-hello-world
+
+// See also https://developer.amazon.com/alexa/console/ask
 
 // Setup:
 // $ cd DebuggerAlexaSkill
@@ -37,7 +39,7 @@ const ErrorHandler = {
         return true;
     },
     handle(handlerInput, error) {
-        console.log('~~~~ Error handled: ${error.stack}');
+        console.log(`~~~~ Error handled: ${error.stack}`);
         const speakOutput = 'Oops, there was an error.';
 
         return handlerInput.responseBuilder

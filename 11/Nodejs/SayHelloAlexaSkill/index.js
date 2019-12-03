@@ -1,6 +1,8 @@
-// SayHelloAlexaSkill, licenced under Apache-2.0
+// SayHelloAlexaSkill, licenced under http://www.apache.org/licenses/LICENSE-2.0
 
 // Based on https://github.com/alexa/skill-sample-nodejs-hello-world
+
+// See also https://developer.amazon.com/alexa/console/ask
 
 // Intents & Utterances:
 //  SayHelloIntent
@@ -95,7 +97,7 @@ const ErrorHandler = {
         return true;
     },
     handle(handlerInput, error) {
-        console.log('~~~~ Error handled: ${error.stack}');
+        console.log(`~~~~ Error handled: ${error.stack}`);
         const speakOutput = 'Sorry, I had trouble doing what you asked. Please try again.';
 
         return handlerInput.responseBuilder
