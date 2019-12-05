@@ -6,7 +6,9 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [Handout](http://www.tamberg.org/fhnw/2019/hs/IoT11VoiceControlHandout.pdf)
 
 ## Examples
-- TODO
+- [DebuggerAlexaSkill](Nodejs/DebuggerAlexaSkill/index.js)
+- [FishTankAlexaSkill](Nodejs/FishTankAlexaSkill/index.js)
+- [SayHelloAlexaSkill](Nodejs/SayHelloAlexaSkill/index.js)
 
 ## Hands-on
 - [Hands-on Lesson 11](../../../../fhnw-iot-work-11/blob/master/README.md)
