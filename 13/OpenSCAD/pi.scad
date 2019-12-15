@@ -1,4 +1,4 @@
-// Raspberry Pi Zero size [mm]:
+// Raspberry Pi Zero dimensions [mm]:
 l = 65;
 w = 30;
 h = 7;
