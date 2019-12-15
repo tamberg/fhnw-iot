@@ -6,7 +6,7 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [Handout](http://www.tamberg.org/fhnw/2019/hs/IoT13PrototypeToConnectedProductHandout.pdf)
 
 ## Examples
-- None
+- [pi.scad](OpenSCAD/pi.scad)
 
 ## Hands-on
 - [Hands-on Lesson 13](../../../../fhnw-iot-work-13/blob/master/README.md)
