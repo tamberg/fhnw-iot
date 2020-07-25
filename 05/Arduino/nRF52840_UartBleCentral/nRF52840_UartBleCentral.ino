@@ -15,6 +15,8 @@ BLEClientBas  batteryServiceClient;
 BLEClientUart uartServiceClient;
 
 void scanCallback(ble_gap_evt_adv_report_t* report) {
+  Serial.printBufferReverse( // little endian
+    report->peer_addr.addr, 6, ':');
   if (Bluefruit.Scanner.checkReportForService(report, uartServiceClient)) {
     Serial.print("UART service detected. Connecting ... ");
     Bluefruit.Central.connect(report);
