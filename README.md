@@ -58,3 +58,6 @@ Unless noted otherwise:
 Publishing your own code?
 
 * [Choose an open source license](https://choosealicense.com/), e.g. the simple [MIT License](https://choosealicense.com/licenses/mit/)
+
+## Support
+- [IoT Engineering Slack](https://fhnw-iot.slack.com/)
