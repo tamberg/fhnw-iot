@@ -2,8 +2,8 @@
 Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https://twitter.com/tamberg) for [FHNW](https://www.fhnw.ch/).
 
 ## Lesson 3: Sending Sensor Data to IoT Platforms
-- [Slides](http://www.tamberg.org/fhnw/2019/hs/IoT03SensorDataPlatforms.pdf)
-- [Handout](http://www.tamberg.org/fhnw/2019/hs/IoT03SensorDataPlatformsHandout.pdf)
+- [Slides](http://www.tamberg.org/fhnw/2020/hs/IoT03SensorDataPlatforms.pdf)
+- [Handout](http://www.tamberg.org/fhnw/2020/hs/IoT03SensorDataPlatformsHandout.pdf)
 
 ## Examples
 - [ESP8266_WiFiClient.ino](Arduino/ESP8266_WiFiClient/ESP8266_WiFiClient.ino)
@@ -21,6 +21,3 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 ## Solution
 - [ESP8266_ThingSpeakWiFiClientSecure.ino](Arduino/ESP8266_ThingSpeakWiFiClientSecure/ESP8266_ThingSpeakWiFiClientSecure.ino)
 - [ESP8266_ThingSpeakWiFiClientSecureWithTime.ino](Arduino/ESP8266_ThingSpeakWiFiClientSecureWithTime/ESP8266_ThingSpeakWiFiClientSecureWithTime.ino)
-
-## Support
-- [FHNW IoT Slack](https://fhnw-iot.slack.com/)
