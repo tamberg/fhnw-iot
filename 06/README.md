@@ -2,8 +2,8 @@
 Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https://twitter.com/tamberg) for [FHNW](https://www.fhnw.ch/).
 
 ## Lesson 6: Raspberry Pi as a Local IoT Gateway
-- [Slides](http://www.tamberg.org/fhnw/2019/hs/IoT06RaspberryPiGateway.pdf)
-- [Handout](http://www.tamberg.org/fhnw/2019/hs/IoT06RaspberryPiGatewayHandout.pdf)
+- [Slides](http://www.tamberg.org/fhnw/2020/hs/IoT06RaspberryPiGateway.pdf)
+- [Handout](http://www.tamberg.org/fhnw/2020/hs/IoT06RaspberryPiGatewayHandout.pdf)
 
 ## Examples
 ### Use cases
@@ -27,6 +27,3 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 
 ## Hands-on
 - [Hands-on Lesson 6](../../../../fhnw-iot-work-06/blob/master/README.md)
-
-## Support
-- [FHNW IoT Slack](https://fhnw-iot.slack.com/)
