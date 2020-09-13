@@ -6,4 +6,4 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [Handout](http://www.tamberg.org/fhnw/2020/hs/IoT02MicrocontrollersHandout.pdf)
 
 ## Hands-on
-- [Hands-on Lesson 2](../../../../fhnw-iot-work-02/blob/master/README.md).
+- [Hands-on Lesson 2](../../../../fhnw-iot-work-02/blob/master/README.md)
