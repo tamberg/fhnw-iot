@@ -13,7 +13,7 @@ void setup() {
 void loop() {
   int b = digitalRead(buttonPin);
   Serial.println(b);
-  if (s == 0 && b == HIGH) { // s is state
+  if (s == 0 && b == HIGH) {
     s = 1; digitalWrite(ledPin, HIGH); // on
   } else if (s == 1 && b == LOW) {
     s = 2;
