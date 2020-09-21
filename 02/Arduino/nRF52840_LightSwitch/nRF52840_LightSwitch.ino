@@ -11,11 +11,11 @@ void setup() {
 void loop() {
   int state = digitalRead(buttonPin);
   Serial.println(state);
-//  if (state == HIGH) {
-//    digitalWrite(ledPin, HIGH); // on
-//  } else {
-//      digitalWrite(ledPin, LOW); // off
-//  }
+  //if (state == HIGH) {
+  //  digitalWrite(ledPin, HIGH); // on
+  //} else {
+  //  digitalWrite(ledPin, LOW); // off
+  //}
   digitalWrite(ledPin, state);
   delay(1);
 }
