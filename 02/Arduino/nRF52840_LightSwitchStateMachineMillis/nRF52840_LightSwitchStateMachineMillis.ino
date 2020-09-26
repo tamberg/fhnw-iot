@@ -1,8 +1,8 @@
 int buttonPin = 9; // Grove D4
 int ledPin = 5; // Grove D2
 
-long t0;
 int s = 0; // state
+long t0;
 
 void setup() {
   pinMode(buttonPin, INPUT);
