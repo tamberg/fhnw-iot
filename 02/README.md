@@ -11,3 +11,4 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 ## Solution
 - [nRF52840_LightSwitch.ino](Arduino/nRF52840_LightSwitch/nRF52840_LightSwitch.ino)
 - [nRF52840_LightSwitchStateMachine.ino](Arduino/nRF52840_LightSwitchStateMachine/nRF52840_LightSwitchStateMachine.ino)
+- [nRF52840_LightSwitchStateMachineMillis.ino](Arduino/nRF52840_LightSwitchStateMachineMillis/nRF52840_LightSwitchStateMachineMillis.ino)
