@@ -66,39 +66,39 @@ znybL/IBQctH68BjC4r940b2
 )EOF";
 
 void handleRoot() {
- if (server.authenticate(basicAuthUsername, basicAuthPassword)) {
-   server.send(200, "text/plain", "It works!");
- } else {
-   // sends "401 Unauthorized", with a
-   // "WWW-Authenticate: Basic" header
-   server.requestAuthentication();
- }
+  if (server.authenticate(basicAuthUsername, basicAuthPassword)) {
+    server.send(200, "text/plain", "It works!");
+  } else {
+    // sends "401 Unauthorized", with a
+    // "WWW-Authenticate: Basic" header
+    server.requestAuthentication();
+  }
 }
 
 void setup() {
- Serial.begin(115200);
- Serial.print("\nConnecting to network ");
- Serial.println(ssid);
- WiFi.mode(WIFI_STA);
- WiFi.begin(ssid, password);
- while (WiFi.status() != WL_CONNECTED) {
-   delay(100);
- }
- Serial.print("Connected to network, local IP = "); 
- Serial.println(WiFi.localIP());
+  Serial.begin(115200);
+  Serial.print("\nConnecting to network ");
+  Serial.println(ssid);
+  WiFi.mode(WIFI_STA);
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(100);
+  }
+  Serial.print("Connected to network, local IP = "); 
+  Serial.println(WiFi.localIP());
 
- server.setRSACert(
-   new BearSSL::X509List(serverCert), 
-   new BearSSL::PrivateKey(serverKey));
+  server.setRSACert(
+    new BearSSL::X509List(serverCert), 
+    new BearSSL::PrivateKey(serverKey));
 
- // add one handler per path
- server.on("/", handleRoot);
+  // add one handler per path
+  server.on("/", handleRoot);
 
- server.begin();
- Serial.print("Listening on port ");
- Serial.println(port);
+  server.begin();
+  Serial.print("Listening on port ");
+  Serial.println(port);
 }
 
 void loop() {
- server.handleClient();
+  server.handleClient();
 }
