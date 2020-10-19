@@ -20,7 +20,7 @@ noble.on("discover", (peripheral) => {
             console.log("found characteristic:", characteristic.uuid);
             characteristic.on("data", (data, isNotification) => {
               if (isNotification) {
-                const notifValue = data.readUInt8(0);
+                const notifValue = data.readUInt8(1);
                 console.log("notified:", notifValue);
               }
             });
