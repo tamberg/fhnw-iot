@@ -19,7 +19,7 @@ noble.on("discover", (peripheral) => {
           characteristics.forEach((characteristic) => {
             console.log("found characteristic:", characteristic.uuid);
             characteristic.read((error, data) => {
-              const value = data.readUInt8(0);
+              const value = data.readUInt8(1);
               console.log("read characteristic value:", value);
               peripheral.disconnect((err) => {
                 console.log("disconnected");
