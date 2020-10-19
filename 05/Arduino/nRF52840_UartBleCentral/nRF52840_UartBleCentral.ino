@@ -29,7 +29,7 @@ void scanCallback(ble_gap_evt_adv_report_t* report) {
 void connectCallback(uint16_t connHandle) {
   Serial.println("Connected");
 
-  Serial.println("Dicovering device information service... ");
+  Serial.println("Discovering device information service... ");
   if (deviceInfoServiceClient.discover(connHandle)) {
     char manuName[mtu];
     memset(manuName, 0, sizeof(manuName));
@@ -47,7 +47,7 @@ void connectCallback(uint16_t connHandle) {
     Serial.println("Not found.");
   }
 
-  Serial.println("Dicovering battery service... ");
+  Serial.println("Discovering battery service... ");
   if (batteryServiceClient.discover(connHandle)) {
     Serial.print("Battery level: ");
     Serial.print(batteryServiceClient.read());
