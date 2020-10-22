@@ -10,8 +10,8 @@
 #include <bluefruit.h>
 
 uint16_t mtu; // Maximum Transmission Unit
-BLEClientDis  deviceInfoServiceClient;
-BLEClientBas  batteryServiceClient;
+BLEClientDis deviceInfoServiceClient;
+BLEClientBas batteryServiceClient;
 BLEClientUart uartServiceClient;
 
 void scanCallback(ble_gap_evt_adv_report_t* report) {
