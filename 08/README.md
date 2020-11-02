@@ -9,8 +9,8 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 ### Arduino
 - [ESP8266_LoRaWANNodeAbp.ino](Arduino/ESP8266_LoRaWANNodeAbp/ESP8266_LoRaWANNodeAbp.ino)
 - [ESP8266_LoRaWANNodeOtaa.ino](Arduino/ESP8266_LoRaWANNodeOtaa/ESP8266_LoRaWANNodeOtaa.ino)
-- [nRF52840_LoRaWANCNodeAbp.ino](Arduino/nRF52840_LoRaWANNodeOtaa/nRF52840_LoRaWANNodeOtaa.ino)
-- [nRF52840_LoRaWANCNodeOtaa.ino](Arduino/nRF52840_LoRaWANCNodeOtaa/nRF52840_LoRaWANCNodeOtaa.ino)
+- [nRF52840_LoRaWANCNodeAbp.ino](Arduino/nRF52840_LoRaWANNodeOtaa/nRF52840_LoRaWANCNodeAbp.ino)
+- [nRF52840_LoRaWANNodeOtaa.ino](Arduino/nRF52840_LoRaWANNodeOtaa/nRF52840_LoRaWANNodeOtaa.ino)
 
 ## Hands-on
 - [Hands-on Lesson 8](../../../../fhnw-iot-work-08/blob/master/README.md)
