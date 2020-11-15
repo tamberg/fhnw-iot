@@ -6,6 +6,7 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [Handout](http://www.tamberg.org/fhnw/2020/hs/IoT10RuleBasedIntegrationHandout.pdf)
 
 ## Examples
+### Node-RED
 - [mqtt-basic-temp-alert-flow.json](Node-RED/mqtt-basic-temp-alert-flow.json)
 - [mqtts-json-temp-alert-flow.json](Node-RED/mqtts-json-temp-alert-flow.json)
 
