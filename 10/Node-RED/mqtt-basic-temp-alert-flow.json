@@ -130,7 +130,7 @@
     {
         "id": "16595bd9.3c1644",
         "type": "mqtt-broker",
-        "name": "test.mosquitto.org",
+        "name": "mqtt://test.mosquitto.org/",
         "broker": "test.mosquitto.org",
         "port": "1883",
         "clientid": "",
