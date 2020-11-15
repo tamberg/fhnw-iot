@@ -2,7 +2,7 @@
     {
         "id": "bfc9a83.7084558",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "MQTT Temp Alert Flow",
         "disabled": false,
         "info": ""
     },
