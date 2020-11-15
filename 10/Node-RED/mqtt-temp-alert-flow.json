@@ -1,0 +1,151 @@
+[
+    {
+        "id": "bfc9a83.7084558",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "f5108ea.7226c7",
+        "type": "mqtt in",
+        "z": "bfc9a83.7084558",
+        "name": "",
+        "topic": "temp",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "16595bd9.3c1644",
+        "x": 79,
+        "y": 60,
+        "wires": [
+            [
+                "81a0450a.9a0a18",
+                "83e3021a.a02e4"
+            ]
+        ]
+    },
+    {
+        "id": "81a0450a.9a0a18",
+        "type": "debug",
+        "z": "bfc9a83.7084558",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 649,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "83e3021a.a02e4",
+        "type": "switch",
+        "z": "bfc9a83.7084558",
+        "name": "> 23?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "23",
+                "vt": "num"
+            },
+            {
+                "t": "lte",
+                "v": "23",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 219,
+        "y": 160,
+        "wires": [
+            [
+                "cd09bf9e.c8e95"
+            ],
+            [
+                "16d02cb1.5e9cb3"
+            ]
+        ]
+    },
+    {
+        "id": "cd09bf9e.c8e95",
+        "type": "template",
+        "z": "bfc9a83.7084558",
+        "name": "off",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "off",
+        "output": "str",
+        "x": 379,
+        "y": 140,
+        "wires": [
+            [
+                "81a0450a.9a0a18",
+                "78e88546.ea0e7c"
+            ]
+        ]
+    },
+    {
+        "id": "16d02cb1.5e9cb3",
+        "type": "template",
+        "z": "bfc9a83.7084558",
+        "name": "on",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "on",
+        "output": "str",
+        "x": 369,
+        "y": 200,
+        "wires": [
+            [
+                "81a0450a.9a0a18",
+                "78e88546.ea0e7c"
+            ]
+        ]
+    },
+    {
+        "id": "78e88546.ea0e7c",
+        "type": "mqtt out",
+        "z": "bfc9a83.7084558",
+        "name": "",
+        "topic": "alert",
+        "qos": "",
+        "retain": "",
+        "broker": "16595bd9.3c1644",
+        "x": 639,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "16595bd9.3c1644",
+        "type": "mqtt-broker",
+        "name": "test.mosquitto.org",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    }
+]
