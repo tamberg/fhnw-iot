@@ -11,7 +11,7 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 
 *Note: Commit and push to your project repo before 00:00*
 
-Start|Talk|Q&A|Change|Team
+Start|Talk<sup>*</sup>|Q&A|Change|Team
 :---|:---|:---|:---|:---
 08:15|8'||2'|_Intro_
 08:25|10'|3'|2'|watersystem
@@ -25,3 +25,5 @@ Start|Talk|Q&A|Change|Team
 10:15|10'|3'|2'|mailservice
 10:30|10'|3'|2'|roommonitor
 10:45|10'|||_Wrap-up_
+
+*<sup>*</sup>including live demo or video.*
