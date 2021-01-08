@@ -8,6 +8,7 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [Project Example](https://github.com/tamberg/fhnw-iot-project-example)
 
 ## Demo Day 11.01.2021
+> Make sure you commit and push to your classroom project repository before demo day, 00:00
 
 Start|Talk|Q&A|Change|Team
 :---|:---|:---|:---|:---
