@@ -26,4 +26,4 @@ Start|Talk<sup>*</sup>|Q&A|Change|Team
 10:30|10'|3'|2'|roommonitor
 10:45|10'|||_Wrap-up_
 
-*<sup>*</sup>including live demo or video.*
+<sup>*</sup>including live demo or video.
