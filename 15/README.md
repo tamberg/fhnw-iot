@@ -9,7 +9,7 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 
 ## Demo Day 11.01.2021
 
-*Note: Commit & push before demo day, 00:00*
+*Note: Commit and push your project before demo day, 00:00*
 
 Start|Talk|Q&A|Change|Team
 :---|:---|:---|:---|:---
