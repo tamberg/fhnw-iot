@@ -13,7 +13,7 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 
 Start|Talk<sup>*</sup>|Q&A|Change|Team
 :---|:---|:---|:---|:---
-08:15|8'||2'|_Intro_
+08:15|5'|3'|2'|_Intro_
 08:25|10'|3'|2'|watersystem
 08:40|10'|3'|2'|bar
 08:55|10'|3'|2'|hauser-buman
