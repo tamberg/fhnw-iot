@@ -18,12 +18,13 @@ Start|Talk<sup>*</sup>|Q&A|Change|Team
 08:40|10'|3'|2'|bar
 08:55|10'|3'|2'|hauser-buman
 09:10|10'|3'|2'|mathis-siegrist
-09:25|||5'|_Break_
-09:30|10'|3'|2'|patrick-manuel
-09:45|10'|3'|2'|lossprevention
-10:00|10'|3'|2'|lukas-k-stefan-f
-10:15|10'|3'|2'|mailservice
-10:30|10'|3'|2'|roommonitor
-10:45|10'|||_Wrap-up_
+09:25|10'|3'|2'|husi-kern
+09:40|||5'|_Break_
+09:45|10'|3'|2'|patrick-manuel
+10:00|10'|3'|2'|lossprevention
+10:15|10'|3'|2'|lukas-k-stefan-f
+10:30|10'|3'|2'|mailservice
+10:45|10'|3'|2'|roommonitor
+11:00|5'|||_Wrap-up_
 
 <sup>*</sup>*including live demo or video.*
