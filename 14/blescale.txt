@@ -1,9 +1,0 @@
-BLE Spezifikationen (der erste Link ist ein direkter Download, geht nicht im Browser auf):
-      https://www.bluetooth.org/docman/handlers/downloaddoc.ashx?doc_id=293526 => WSS_V1.0.0.pdf
-      https://btprodspecificationrefs.blob.core.windows.net/assigned-values/16-bit%20UUID%20Numbers%20Document.pdf => "16-bit UUID Numbers Document.pdf"
-
-Standard GATT API fuer BLE Personenwaage:
-...
-
-Hinweis auf Interpretation einer Messung:
-...
