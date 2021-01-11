@@ -1,0 +1,12 @@
+const mqtt = require("mqtt");
+
+const broker = "mqtt://api.quakehouse.org/";
+const client = mqtt.connect(broker);
+
+client.on("connect", () => {
+  // TODO: subscribe to topics ...
+});
+
+client.on("message", (topic, message) => {
+  // TODO: analyse topic, message, publish ...
+});
