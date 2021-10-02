@@ -6,6 +6,7 @@
 
 // Based on example code written by ladyada, public domain
 
+#include "Adafruit_TinyUSB.h"; // Fix https://github.com/adafruit/Adafruit_nRF52_Arduino/issues/653
 #include "DHT.h"
 
 const int dhtPin = 5; // Grove adapter D2
