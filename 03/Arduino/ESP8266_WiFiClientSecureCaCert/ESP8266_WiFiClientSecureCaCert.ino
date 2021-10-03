@@ -2,11 +2,10 @@
 #include <time.h>
 #include "certs.h"
 
-// based on https://github.com/SensorsIot/HTTPS-for-Makers licensed under
-// MIT https://github.com/SensorsIot/HTTPS-for-Makers/blob/master/LICENSE
-// CA certificate converted with CertToESP8266.py in the same repository
-//extern const unsigned char caCert[] PROGMEM;
-//extern const unsigned int caCertLen;
+// CA certificate converted with 
+// $ pip3 install cryptography
+// $ cd ~/Library/Arduino15/packages/esp8266/hardware/esp8266/3.0.2/tools 
+// $ python3 cert.py -s www.howsmyssl.com -n howsmyssl
 
 X509List cert(cert_ISRG_Root_X1);
 
@@ -44,15 +43,10 @@ void setup() {
   BearSSL::WiFiClientSecure client; // use TLS
   //client.allowSelfSignedCerts();
   Serial.println("Setting CA certificate ");
-  //if (!client.setCACert_P(caCert, caCertLen)) {
-  //  Serial.println("Setting CA certificate failed");
-  //}
   client.setTrustAnchors(&cert);
   Serial.print("Connecting to host ");
   Serial.println(host);
   if (client.connect(host, port)) {
-    //Serial.println("Verifying certificate chain ");
-    //if (client.verifyCertChain(host)) {
     Serial.println("Sending HTTP request");
     client.print("GET ");
     client.print(path);
@@ -70,9 +64,6 @@ void setup() {
         ch = client.read();
       }
     }
-    //} else {
-    //  Serial.println("Certificate mismatch");
-    //}
   } else {
     Serial.println("Cannot connect, certificate mismatch?");
   }
