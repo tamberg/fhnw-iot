@@ -10,13 +10,13 @@ void setup() {
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
-    delay(100); // keeps watchdog happy
+    delay(500);
   }
   Serial.print("Connected to network, local IP = "); 
   Serial.println(WiFi.localIP());
 
   const char *host = "tmb.gr";
-  const char *path = "/hello.html";
+  const char *path = "/hello.json";
   const int port = 80;
 
   // connect to remote host
