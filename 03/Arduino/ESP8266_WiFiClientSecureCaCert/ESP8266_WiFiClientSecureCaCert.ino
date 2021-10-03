@@ -1,11 +1,14 @@
 #include <ESP8266WiFi.h>
 #include <time.h>
+#include "certs.h"
 
 // based on https://github.com/SensorsIot/HTTPS-for-Makers licensed under
 // MIT https://github.com/SensorsIot/HTTPS-for-Makers/blob/master/LICENSE
 // CA certificate converted with CertToESP8266.py in the same repository
-extern const unsigned char caCert[] PROGMEM;
-extern const unsigned int caCertLen;
+//extern const unsigned char caCert[] PROGMEM;
+//extern const unsigned int caCertLen;
+
+X509List cert(cert_ISRG_Root_X1);
 
 const char *ssid = "MY_SSID"; // TODO
 const char *password = "MY_PASSWORD"; // TODO
@@ -41,36 +44,37 @@ void setup() {
   BearSSL::WiFiClientSecure client; // use TLS
   //client.allowSelfSignedCerts();
   Serial.println("Setting CA certificate ");
-  if (!client.setCACert_P(caCert, caCertLen)) {
-    Serial.println("Setting CA certificate failed");
-  }
+  //if (!client.setCACert_P(caCert, caCertLen)) {
+  //  Serial.println("Setting CA certificate failed");
+  //}
+  client.setTrustAnchors(&cert);
   Serial.print("Connecting to host ");
   Serial.println(host);
   if (client.connect(host, port)) {
-    Serial.println("Verifying certificate chain ");
-    if (client.verifyCertChain(host)) {
-      Serial.println("Sending HTTP request");
-      client.print("GET ");
-      client.print(path);
-      client.print(" HTTP/1.1\r\n");
-      client.print("Host: ");
-      client.print(host);
-      client.print("\r\n");
-      client.print("Connection: close\r\n\r\n");
+    //Serial.println("Verifying certificate chain ");
+    //if (client.verifyCertChain(host)) {
+    Serial.println("Sending HTTP request");
+    client.print("GET ");
+    client.print(path);
+    client.print(" HTTP/1.1\r\n");
+    client.print("Host: ");
+    client.print(host);
+    client.print("\r\n");
+    client.print("Connection: close\r\n\r\n");
   
-      Serial.println("Reading HTTP response\n");
-      while (client.connected() || client.available()) {
-        int ch = client.read();
-        while (ch >= 0) {
-          Serial.print((char) ch);
-          ch = client.read();
-        }
+    Serial.println("Reading HTTP response\n");
+    while (client.connected() || client.available()) {
+      int ch = client.read();
+      while (ch >= 0) {
+        Serial.print((char) ch);
+        ch = client.read();
       }
-    } else {
-      Serial.println("Certificate mismatch");
     }
+    //} else {
+    //  Serial.println("Certificate mismatch");
+    //}
   } else {
-    Serial.println("Cannot connect");
+    Serial.println("Cannot connect, certificate mismatch?");
   }
 }
 
