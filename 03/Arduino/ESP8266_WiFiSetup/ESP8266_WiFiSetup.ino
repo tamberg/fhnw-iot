@@ -10,7 +10,7 @@ void setup() {
   WiFi.mode(WIFI_STA); // or WIFI_AP, WIFI_AP_STA, WIFI_OFF
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
-    delay(100); // keeps watchdog happy
+    delay(500);
   }
   Serial.print("Connected, IP = "); 
   Serial.println(WiFi.localIP());
