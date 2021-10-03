@@ -8,7 +8,7 @@ const char *password = "MY_PASSWORD"; // TODO
 
 const char *host = "www.howsmyssl.com"; // via @spiessa
 const char *fingerprint = // SHA-1, not very secure anymore
-  "FE 6F 7B 71 B6 67 0A B0 90 30 06 E0 98 64 2C 30 9A 46 CB C7";
+  "CB 4D 0A 4F E5 0A DA 76 68 A4 33 37 BC 9A F9 C5 47 DD 5D F6";
 const char *path = "/a/check";
 const int port = 443;
 
@@ -20,7 +20,7 @@ void setup() {
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
-    delay(100); // keeps watchdog happy
+    delay(500);
   }
   Serial.print("Connected to network, local IP = "); 
   Serial.println(WiFi.localIP());
