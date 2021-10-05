@@ -1,9 +1,8 @@
 #include "Adafruit_TinyUSB.h"; // Fix https://github.com/adafruit/Adafruit_nRF52_Arduino/issues/653
 #include <TM1637.h>
 
-#define CLK 9 // Grove D4
-#define DIO 10 // Grove D5
-
+int tm1637Clk = 9; // Grove D4
+int tm1637Dio = 10; // Grove D5
 int rotaryPin = A2; // Grove A2
 int buttonPin = A4; // Grove A4
 int buzzerPin = 5; // Grove D2
@@ -12,7 +11,7 @@ int state = 0;
 long dt;
 long t0;
 
-TM1637 tm1637(CLK, DIO);
+TM1637 tm1637(tm1637Clk, tm1637Dio);
 
 void setup() {
   Serial.begin(115200);
@@ -33,18 +32,18 @@ int pressed(int value) {
   return value == HIGH; // inverted
 }
 
-void display_time(long dt) {
-  int m = dt / 60;
+void display_time(long t) {
+  int m = t / 60;
   int m1 = m / 10;
   int m0 = m % 10;
-  int s = dt % 60;
+  int s = t % 60;
   int s1 = s / 10;
   int s0 = s % 10;
   tm1637.display(0, m1);
   tm1637.display(1, m0);
   tm1637.display(2, s1);
   tm1637.display(3, s0);
-  Serial.printf("%d => %d%d:%d%d\n", dt, m1, m0, s1, s0);
+  Serial.printf("%d => %d%d:%d%d\n", t, m1, m0, s1, s0);
 }
 
 void loop() {
