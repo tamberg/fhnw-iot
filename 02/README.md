@@ -17,3 +17,4 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [nRF52840_LightSwitch.ino](Arduino/nRF52840_LightSwitch/nRF52840_LightSwitch.ino)
 - [nRF52840_LightSwitchStateMachine.ino](Arduino/nRF52840_LightSwitchStateMachine/nRF52840_LightSwitchStateMachine.ino)
 - [nRF52840_LightSwitchStateMachineMillis.ino](Arduino/nRF52840_LightSwitchStateMachineMillis/nRF52840_LightSwitchStateMachineMillis.ino)
+- [nRF52840_KitchenTimer.ino](Arduino/nRF52840_KitchenTimer/nRF52840_KitchenTimer.ino)
