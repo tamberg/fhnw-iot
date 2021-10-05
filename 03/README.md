@@ -18,6 +18,6 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 ## Hands-on
 - [Hands-on Lesson 3](../../../../fhnw-iot-work-03/blob/master/README.md)
 
-## Solution
+## Solutions
 - [ESP8266_ThingSpeakWiFiClientSecure.ino](Arduino/ESP8266_ThingSpeakWiFiClientSecure/ESP8266_ThingSpeakWiFiClientSecure.ino)
 - [ESP8266_ThingSpeakWiFiClientSecureWithTime.ino](Arduino/ESP8266_ThingSpeakWiFiClientSecureWithTime/ESP8266_ThingSpeakWiFiClientSecureWithTime.ino)
