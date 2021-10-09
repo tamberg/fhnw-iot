@@ -1,5 +1,5 @@
 // https://developers.meethue.com/develop/hue-api/
-// $ curl -vX PUT https://HUE_BRIDGE_IP/api/newdeveloper/lights/2/state -d '{"on":false}'
+// $ curl -vX PUT https://HUE_BRIDGE_HOST/api/newdeveloper/lights/2/state -d '{"on":false}'
 
 #include <ESP8266WiFi.h>
 
@@ -9,7 +9,7 @@ const int ledPin = 0; // Built-in LED
 const char *ssid = "MY_SSID"; // TODO
 const char *password = "MY_PASSWORD"; // TODO
 
-const char *host = "HUE_BRIDGE_IP"; // TODO
+const char *host = "HUE_BRIDGE_HOST"; // TODO
 const int port = 443;
 
 int buttonState = 0;
