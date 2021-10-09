@@ -24,7 +24,7 @@ void sendHueStateWebRequest(int lightId, char *content) {
   client.setInsecure(); // no cert validation
   if (client.connect(host, port)) {
 
-    // send HTTPS request
+    // send HTTP request
     client.print(verb);
     client.print(" ");
     client.print(pathPrefix);
@@ -41,7 +41,7 @@ void sendHueStateWebRequest(int lightId, char *content) {
     client.print("Connection: close\r\n\r\n");
     client.print(content);
 
-    // read HTTPS response
+    // read HTTP response
     while (client.connected() || client.available()) {
       int ch = client.read();
       while (ch >= 0) {
