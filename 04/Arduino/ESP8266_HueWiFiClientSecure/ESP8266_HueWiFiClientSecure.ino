@@ -9,7 +9,7 @@ const int ledPin = 0; // Built-in LED
 const char *ssid = "MY_SSID"; // TODO
 const char *password = "MY_PASSWORD"; // TODO
 
-const char *host = "HUE_BRIDGE_IP"; // TODO
+const char *host = "HUE_BRIDGE_HOST"; // TODO
 const int port = 443;
 
 int buttonState = 0;
