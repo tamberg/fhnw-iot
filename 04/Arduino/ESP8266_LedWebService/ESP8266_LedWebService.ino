@@ -2,7 +2,7 @@
 
 const char *ssid = "MY_SSID"; 
 const char *password = "MY_PASSWORD";
-const int ledPin = 0;
+const int ledPin = 5; // Grove adapter I2C_1 or _2 used as D6
 const int port = 80;
 
 WiFiServer server(port);
@@ -39,7 +39,7 @@ void loop() {
       int state = client.parseInt();
       state = min(max(state, 0), 1);
       Serial.println(state);
-      digitalWrite(ledPin, state ? LOW : HIGH);
+      digitalWrite(ledPin, state ? HIGH : LOW);
     }
     client.find("\r\n\r\n"); // Consume incoming request
     sendResponse(client);
