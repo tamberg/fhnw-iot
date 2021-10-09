@@ -32,7 +32,7 @@ void loop() {
       Serial.print((char) ch);
       ch = client.read();
     }
-    
+
     // Send HTTP response
     client.print("HTTP/1.1 200 OK\r\n");
     client.print("Content-Length: 9\r\n");
