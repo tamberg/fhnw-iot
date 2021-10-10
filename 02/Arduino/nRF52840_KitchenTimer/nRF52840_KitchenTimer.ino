@@ -8,8 +8,8 @@ int buttonPin = A4; // Grove A4
 int buzzerPin = 5; // Grove D2
 
 int state = 0;
-long dt;
-long t0;
+int dt; // sec
+long t0; // ms
 
 TM1637 tm1637(tm1637Clk, tm1637Dio);
 
@@ -32,7 +32,7 @@ int pressed(int value) {
   return value == HIGH; // inverted
 }
 
-void display_time(long t) {
+void display_time(long t) { // sec
   int m = t / 60;
   int m1 = m / 10;
   int m0 = m % 10;
@@ -49,24 +49,25 @@ void display_time(long t) {
 void loop() {
   int r = analogRead(rotaryPin);
   int b = digitalRead(buttonPin);
+  long t = millis();
   Serial.printf("state = %d, r = %d, b = %d\n", state, r, b);
   if (state == 0 && !pressed(b)) { // set
     dt = map(r, 0, 1024, 180, 0);
     display_time(dt);
   } else if (state == 0 && pressed(b)) { // start
-    t0 = millis();
+    t0 = t;
     state = 1; // counting
   } else if (state == 1 && pressed(b)) { // cancel
     state = 0; // setting
-  } else if (state == 1 && !pressed(b) && (millis() - t0) > (dt * 1000)) { // alert
+  } else if (state == 1 && !pressed(b) && ((t - t0) / 1000) >= dt) { // alert
     display_time(0);
     digitalWrite(buzzerPin, HIGH);
     state = 2; // alerting
   } else if (state == 1 && !pressed(b)) { // display time
-    display_time(dt - ((millis() - t0) / 1000));
+    display_time(dt - ((t - t0) / 1000));
   } else if (state == 2 && pressed(b)) { // confirm alert
     digitalWrite(buzzerPin, LOW);
-    state = 0;
+    state = 0; // setting
   }
   delay(100);
 }
