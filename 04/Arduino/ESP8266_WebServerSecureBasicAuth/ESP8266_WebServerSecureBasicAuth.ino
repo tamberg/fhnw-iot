@@ -87,7 +87,7 @@ void setup() {
   Serial.print("Connected to network, local IP = "); 
   Serial.println(WiFi.localIP());
 
-  server.setRSACert(
+  server.getServer().setRSACert(
     new BearSSL::X509List(serverCert), 
     new BearSSL::PrivateKey(serverKey));
 
