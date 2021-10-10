@@ -1,0 +1,16 @@
+Kitchen Timer State Machine
+
++----+      +----+      +----+
+| S0 |----->| S1 |----->| S2 |
++----+      +----+      +----+
+  ^ ^                    | |
+  | |       +----+       | |
+  | +-------| S3 |<------+ |
+  |         +----+         v
++----+                  +----+
+| S5 |<-----------------| S4 |
++----+                  +----+
+
+S0: setting    S3: cancelling
+S1: starting   S4: alerting
+S2: running    S5: confirming
