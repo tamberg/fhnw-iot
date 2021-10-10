@@ -56,18 +56,24 @@ void loop() {
     display_time(dt);
   } else if (state == 0 && pressed(b)) { // start
     t0 = t;
-    state = 1; // counting
-  } else if (state == 1 && pressed(b)) { // cancel
+    state = 1; // starting
+  } else if (state == 1 && !pressed(b)) { // started
+    state = 2; // running
+  } else if (state == 2 && pressed(b)) { // cancel
+    state = 3; // cancelling
+  } else if (state == 3 && !pressed(b)) { // cancelled
     state = 0; // setting
-  } else if (state == 1 && !pressed(b) && ((t - t0) / 1000) >= dt) { // alert
+  } else if (state == 2 && !pressed(b) && ((t - t0) / 1000) >= dt) { // alert
     display_time(0);
     digitalWrite(buzzerPin, HIGH);
-    state = 2; // alerting
-  } else if (state == 1 && !pressed(b)) { // display time
+    state = 4; // alerting
+  } else if (state == 2 && !pressed(b)) { // display time
     display_time(dt - ((t - t0) / 1000));
-  } else if (state == 2 && pressed(b)) { // confirm alert
+  } else if (state == 4 && pressed(b)) { // confirm alert
     digitalWrite(buzzerPin, LOW);
+    state = 5; // confirming
+  } else if (state == 5 && !pressed(b)) { // confirmed
     state = 0; // setting
   }
-  delay(100);
+  delay(1);
 }
