@@ -7,6 +7,7 @@
 // Licensed under the MIT license, see LICENSE or
 // https://choosealicense.com/licenses/mit/
 
+#include "Adafruit_TinyUSB.h"; // Fix https://github.com/adafruit/Adafruit_nRF52_Arduino/issues/653
 #include <bluefruit.h>
 
 uint16_t mtu; // Maximum Transmission Unit
