@@ -12,9 +12,9 @@
 BLEDis deviceInfoService;
 BLEBas batteryService;
 
-// See https://www.bluetooth.com/specifications/gatt/viewer?attributeXmlFile=org.bluetooth.service.heart_rate.xml
-// and https://www.bluetooth.com/specifications/gatt/viewer?attributeXmlFile=org.bluetooth.characteristic.heart_rate_measurement.xml
-// and https://www.bluetooth.com/specifications/gatt/viewer?attributeXmlFile=org.bluetooth.characteristic.body_sensor_location.xml
+// See https://www.bluetooth.com/wp-content/uploads/Sitecore-Media-Library/Gatt/Xml/Services/org.bluetooth.service.heart_rate.xml
+// and https://www.bluetooth.com/wp-content/uploads/Sitecore-Media-Library/Gatt/Xml/Characteristics/org.bluetooth.characteristic.heart_rate_measurement.xml
+// and https://www.bluetooth.com/wp-content/uploads/Sitecore-Media-Library/Gatt/Xml/Characteristics/org.bluetooth.characteristic.body_sensor_location.xml
 BLEService heartRateMonitorService = BLEService(0x180D);
 BLECharacteristic heartRateMeasurementCharacteristic = BLECharacteristic(0x2A37);
 BLECharacteristic bodySensorLocationCharacteristic = BLECharacteristic(0x2A38);
