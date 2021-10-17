@@ -2,8 +2,8 @@
 Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https://twitter.com/tamberg) for [FHNW](https://www.fhnw.ch/).
 
 ## Lesson 5: Local Connectivity with Bluetooth LE
-- [Slides](http://www.tamberg.org/fhnw/2020/hs/IoT05BluetoothLEConnectivity.pdf)
-- [Handout](http://www.tamberg.org/fhnw/2020/hs/IoT05BluetoothLEConnectivityHandout.pdf)
+- [Slides](http://www.tamberg.org/fhnw/2021/hs/IoT05BluetoothLEConnectivity.pdf)
+- [Handout](http://www.tamberg.org/fhnw/2021/hs/IoT05BluetoothLEConnectivityHandout.pdf)
 
 ## Examples
 - [nRF52840_BeaconBleObservable.ino](Arduino/nRF52840_BeaconBleObservable/nRF52840_BeaconBleObservable.ino)
