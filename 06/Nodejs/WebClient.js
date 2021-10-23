@@ -1,6 +1,6 @@
 const http = require("http");
 
-http.get("http://tmb.gr/hello.html", (resp) => {
+http.get("http://tmb.gr/hello.json", (resp) => {
   let data = "";
 
   resp.on("data", (chunk) => {
