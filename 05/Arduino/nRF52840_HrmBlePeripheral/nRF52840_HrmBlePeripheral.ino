@@ -19,6 +19,7 @@ BLEBas batteryService;
 BLEService heartRateMonitorService = BLEService(0x180D);
 BLECharacteristic heartRateMeasurementCharacteristic = BLECharacteristic(0x2A37);
 BLECharacteristic bodySensorLocationCharacteristic = BLECharacteristic(0x2A38);
+BLECharacteristic heartRateControlPointCharacteristic = BLECharacteristic(0x2A39);
 
 void connectedCallback(uint16_t connectionHandle) {
   char centralName[32] = { 0 };
@@ -36,6 +37,13 @@ void disconnectedCallback(uint16_t connectionHandle, uint8_t reason) {
   Serial.println(reason); // see https://github.com/adafruit/Adafruit_nRF52_Arduino
   // /blob/master/cores/nRF5/nordic/softdevice/s140_nrf52_6.1.1_API/include/ble_hci.h
   Serial.println("Advertising ...");
+}
+
+void writeCallback(uint16_t connectionHandle, BLECharacteristic* characteristic, uint8_t* data, uint16_t len) {
+  if (characteristic->uuid == heartRateControlPointCharacteristic.uuid) {
+    Serial.print("Heater Rate Control Point 'Write', ");
+    Serial.println(data[0]); // TODO
+  }
 }
 
 void cccdCallback(uint16_t connectionHandle, BLECharacteristic* characteristic, uint16_t cccdValue) {
@@ -65,6 +73,12 @@ void setupHeartRateMonitorService() {
   bodySensorLocationCharacteristic.setFixedLen(1);
   bodySensorLocationCharacteristic.begin();
   bodySensorLocationCharacteristic.write8(0); // Sensor location 'Other'
+
+  heartRateControlPointCharacteristic.setProperties(CHR_PROPS_WRITE | CHR_PROPS_WRITE_WO_RESP);
+  heartRateControlPointCharacteristic.setPermission(SECMODE_OPEN, SECMODE_OPEN);
+  heartRateControlPointCharacteristic.setFixedLen(1); // TODO: check HRM spec
+  heartRateControlPointCharacteristic.setWriteCallback(writeCallback, true);
+  heartRateControlPointCharacteristic.begin();
 }
 
 void startAdvertising() {
