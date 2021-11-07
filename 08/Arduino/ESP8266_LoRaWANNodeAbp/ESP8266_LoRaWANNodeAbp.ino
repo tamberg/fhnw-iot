@@ -52,7 +52,7 @@
 // TODO set keys, e.g. from https://eu1.cloud.thethings.network/console/applications/fhnw-iot/devices/fhnw-iot-device-0
 
 // LoRaWAN NwkSKey, network session key
-static const PROGMEM u1_t NWKSKEY[16] = // TODO, msb
+static const u1_t PROGMEM NWKSKEY[16] = // TODO, msb
   { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
 
 // LoRaWAN AppSKey, application session key
@@ -62,7 +62,7 @@ static const u1_t PROGMEM APPSKEY[16] = // TODO, msb
 // LoRaWAN end-device address (DevAddr)
 // See http://thethingsnetwork.org/wiki/AddressSpace
 // The library converts the address to network byte order as needed.
-static const u4_t DEVADDR = 0x00000000; // TODO
+static const u4_t DEVADDR = 0x00000000; // TODO, msb
 
 // These callbacks are only used in over-the-air activation, so they are
 // left empty here (we cannot leave them out completely unless
