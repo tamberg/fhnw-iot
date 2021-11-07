@@ -49,37 +49,39 @@
 # define FILLMEIN (#dont edit this, edit the lines that use FILLMEIN)
 #endif
 
-// TODO set keys, e.g. from https://console.thethingsnetwork.org/applications/fhnw-iot/devices/fhnw-iot-arduino-1/data
+// TODO set keys, e.g. from https://eu1.cloud.thethings.network/console/applications/fhnw-iot/devices/fhnw-iot-device-0
 
 // LoRaWAN NwkSKey, network session key
-static const PROGMEM u1_t NWKSKEY[16] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+static const PROGMEM u1_t NWKSKEY[16] = // TODO, msb
+  { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
 
 // LoRaWAN AppSKey, application session key
-static const u1_t PROGMEM APPSKEY[16] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+static const u1_t PROGMEM APPSKEY[16] = // TODO, msb
+  { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
 
 // LoRaWAN end-device address (DevAddr)
 // See http://thethingsnetwork.org/wiki/AddressSpace
 // The library converts the address to network byte order as needed.
-static const u4_t DEVADDR = 0x00000000; // <-- Change this address for every node!
+static const u4_t DEVADDR = 0x00000000; // TODO
 
 // These callbacks are only used in over-the-air activation, so they are
 // left empty here (we cannot leave them out completely unless
 // DISABLE_JOIN is set in arduino-lmic/project_config/lmic_project_config.h,
 // otherwise the linker will complain).
-void os_getArtEui (u1_t* buf) { }
-void os_getDevEui (u1_t* buf) { }
-void os_getDevKey (u1_t* buf) { }
+void os_getArtEui (u1_t* buf) {}
+void os_getDevEui (u1_t* buf) {}
+void os_getDevKey (u1_t* buf) {}
 
-static uint8_t mydata[] = "Hello, world!";
+static uint8_t mydata[] = "Hello, world!"; // max. 51
 static osjob_t sendjob;
 
 // Schedule TX every this many seconds (might become longer due to duty
 // cycle limitations).
-const unsigned TX_INTERVAL = 60;
+const unsigned TX_INTERVAL = 10; // s
 
 // Pin mapping
 
-// https://github.com/tamberg/fhnw-iot/wiki/FeatherWing-RFM95W
+// See https://github.com/tamberg/fhnw-iot/wiki/FeatherWing-RFM95W
 
 // Feather nRF52840 Express
 const lmic_pinmap lmic_pins = {
@@ -108,26 +110,6 @@ void onEvent (ev_t ev) {
             break;
         case EV_BEACON_TRACKED:
             Serial.println(F("EV_BEACON_TRACKED"));
-            break;
-        case EV_JOINING:
-            Serial.println(F("EV_JOINING"));
-            break;
-        case EV_JOINED:
-            Serial.println(F("EV_JOINED"));
-            break;
-        /*
-        || This event is defined but not used in the code. No
-        || point in wasting codespace on it.
-        ||
-        || case EV_RFU1:
-        ||     Serial.println(F("EV_RFU1"));
-        ||     break;
-        */
-        case EV_JOIN_FAILED:
-            Serial.println(F("EV_JOIN_FAILED"));
-            break;
-        case EV_REJOIN_FAILED:
-            Serial.println(F("EV_REJOIN_FAILED"));
             break;
         case EV_TXCOMPLETE:
             Serial.println(F("EV_TXCOMPLETE (includes waiting for RX windows)"));
@@ -188,8 +170,8 @@ void do_send(osjob_t* j){
 }
 
 void setup() {
-//    pinMode(13, OUTPUT); 
-    //while (!Serial); // wait for Serial to be initialized
+    pinMode(13, OUTPUT); 
+    while (!Serial); // wait for Serial to be initialized
     Serial.begin(115200);
     delay(100);     // per sample code on RF_95 test
     Serial.println(F("Starting"));
