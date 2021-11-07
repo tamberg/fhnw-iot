@@ -52,36 +52,33 @@
 // This EUI must be in little-endian format, so least-significant-byte
 // first. When copying an EUI from ttnctl output, this means to reverse
 // the bytes.
-static const u1_t PROGMEM APPEUI[8] = // TODO, lsb (!)
-  { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+static const u1_t PROGMEM APPEUI[8]=
+  { FILLMEIN }; // lsb (!)
 
-void os_getArtEui (u1_t* buf) { memcpy_P(buf, APPEUI, 8);}
+void os_getArtEui (u1_t* buf) { memcpy_P(buf, APPEUI, 8); }
 
 // This should also be in little endian format, see above.
-static const u1_t PROGMEM DEVEUI[8] = // TODO, lsb (!)
-  { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+static const u1_t PROGMEM DEVEUI[8]=
+  { FILLMEIN }; // lsb (!)
 
-void os_getDevEui (u1_t* buf) { memcpy_P(buf, DEVEUI, 8);}
+void os_getDevEui (u1_t* buf) { memcpy_P(buf, DEVEUI, 8); }
 
 // This key should be in big endian format (or, since it is not really a
 // number but a block of memory, endianness does not really apply). In
 // practice, a key taken from ttnctl can be copied as-is.
-static const u1_t PROGMEM APPKEY[16] = // msb
-  { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+static const u1_t PROGMEM APPKEY[16] = 
+  { FILLMEIN }; // msb
 
-void os_getDevKey (u1_t* buf) {  memcpy_P(buf, APPKEY, 16);}
+void os_getDevKey (u1_t* buf) {  memcpy_P(buf, APPKEY, 16); }
 
-static uint8_t mydata[] = "Hello, World!";
+static uint8_t mydata[] = "Hello, world!";
 static osjob_t sendjob;
 
 // Schedule TX every this many seconds (might become longer due to duty
 // cycle limitations).
 const unsigned TX_INTERVAL = 60;
 
-// Pin mapping
-
-// See https://github.com/tamberg/fhnw-iot/wiki/FeatherWing-RFM95W
-
+// Pin mapping for https://github.com/tamberg/fhnw-iot/wiki/FeatherWing-RFM95W with
 // Feather nRF52840 Express
 const lmic_pinmap lmic_pins = {
     .nss = 5, // E = CS
@@ -93,6 +90,13 @@ const lmic_pinmap lmic_pins = {
       LMIC_UNUSED_PIN
     },
 };
+
+void printHex2(unsigned v) {
+    v &= 0xff;
+    if (v < 16)
+        Serial.print('0');
+    Serial.print(v, HEX);
+}
 
 void onEvent (ev_t ev) {
     Serial.print(os_getTime());
@@ -120,25 +124,29 @@ void onEvent (ev_t ev) {
               devaddr_t devaddr = 0;
               u1_t nwkKey[16];
               u1_t artKey[16];
-              LMIC_setSession(netid, devaddr, nwkKey, artKey);
+              LMIC_getSessionKeys(&netid, &devaddr, nwkKey, artKey);
               Serial.print("netid: ");
               Serial.println(netid, DEC);
               Serial.print("devaddr: ");
               Serial.println(devaddr, HEX);
-              Serial.print("artKey: ");
-              for (int i=0; i<sizeof(artKey); ++i) {
-                Serial.print(artKey[i], HEX);
+              Serial.print("AppSKey: ");
+              for (size_t i=0; i<sizeof(artKey); ++i) {
+                if (i != 0)
+                  Serial.print("-");
+                printHex2(artKey[i]);
               }
               Serial.println("");
-              Serial.print("nwkKey: ");
-              for (int i=0; i<sizeof(nwkKey); ++i) {
-                Serial.print(nwkKey[i], HEX);
+              Serial.print("NwkSKey: ");
+              for (size_t i=0; i<sizeof(nwkKey); ++i) {
+                      if (i != 0)
+                              Serial.print("-");
+                      printHex2(nwkKey[i]);
               }
-              Serial.println("");
+              Serial.println();
             }
             // Disable link check validation (automatically enabled
             // during join, but because slow data rates change max TX
-	    // size, we don't use it in this example.
+      // size, we don't use it in this example.
             LMIC_setLinkCheckMode(0);
             break;
         /*
@@ -191,9 +199,19 @@ void onEvent (ev_t ev) {
         ||    Serial.println(F("EV_SCAN_FOUND"));
         ||    break;
         */
-//        case EV_TXSTART:
-//            Serial.println(F("EV_TXSTART"));
-//            break;
+        case EV_TXSTART:
+            Serial.println(F("EV_TXSTART"));
+            break;
+        case EV_TXCANCELED:
+            Serial.println(F("EV_TXCANCELED"));
+            break;
+        case EV_RXSTART:
+            /* do not print anything -- it wrecks timing */
+            break;
+        case EV_JOIN_TXCOMPLETE:
+            Serial.println(F("EV_JOIN_TXCOMPLETE: no JoinAccept"));
+            break;
+
         default:
             Serial.print(F("Unknown event: "));
             Serial.println((unsigned) ev);
@@ -214,8 +232,7 @@ void do_send(osjob_t* j){
 }
 
 void setup() {
-    Serial.begin(115200);
-    while (!Serial) {}
+    Serial.begin(9600);
     Serial.println(F("Starting"));
 
     #ifdef VCC_ENABLE
