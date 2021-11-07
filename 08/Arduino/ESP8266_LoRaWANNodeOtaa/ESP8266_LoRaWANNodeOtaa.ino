@@ -51,32 +51,34 @@
 
 // This EUI must be in little-endian format, so least-significant-byte
 // first. When copying an EUI from ttnctl output, this means to reverse
-// the bytes. For TTN issued EUIs the last bytes should be 0xD5, 0xB3,
-// 0x70.
-static const u1_t PROGMEM APPEUI[8] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-void os_getArtEui (u1_t* buf) { memcpy_P(buf, APPEUI, 8);}
+// the bytes.
+static const u1_t PROGMEM APPEUI[8]=
+  { FILLMEIN }; // lsb (!)
+
+void os_getArtEui (u1_t* buf) { memcpy_P(buf, APPEUI, 8); }
 
 // This should also be in little endian format, see above.
-static const u1_t PROGMEM DEVEUI[8] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-void os_getDevEui (u1_t* buf) { memcpy_P(buf, DEVEUI, 8);}
+static const u1_t PROGMEM DEVEUI[8]=
+  { FILLMEIN }; // lsb (!)
+
+void os_getDevEui (u1_t* buf) { memcpy_P(buf, DEVEUI, 8); }
 
 // This key should be in big endian format (or, since it is not really a
 // number but a block of memory, endianness does not really apply). In
 // practice, a key taken from ttnctl can be copied as-is.
-static const u1_t PROGMEM APPKEY[16] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-void os_getDevKey (u1_t* buf) {  memcpy_P(buf, APPKEY, 16);}
+static const u1_t PROGMEM APPKEY[16] = 
+  { FILLMEIN }; // msb
 
-static uint8_t mydata[] = "Hello, werld!";
+void os_getDevKey (u1_t* buf) {  memcpy_P(buf, APPKEY, 16); }
+
+static uint8_t mydata[] = "Hello, world!";
 static osjob_t sendjob;
 
 // Schedule TX every this many seconds (might become longer due to duty
 // cycle limitations).
 const unsigned TX_INTERVAL = 60;
 
-// Pin mapping
-
-// https://github.com/tamberg/fhnw-iot/wiki/FeatherWing-RFM95W
-
+// Pin mapping for https://github.com/tamberg/fhnw-iot/wiki/FeatherWing-RFM95W with
 // Feather Huzzah ESP8266
 const lmic_pinmap lmic_pins = {
     .nss = 2, // E = CS
@@ -88,6 +90,13 @@ const lmic_pinmap lmic_pins = {
         LMIC_UNUSED_PIN
     },
 };
+
+void printHex2(unsigned v) {
+    v &= 0xff;
+    if (v < 16)
+        Serial.print('0');
+    Serial.print(v, HEX);
+}
 
 void onEvent (ev_t ev) {
     Serial.print(os_getTime());
@@ -120,20 +129,24 @@ void onEvent (ev_t ev) {
               Serial.println(netid, DEC);
               Serial.print("devaddr: ");
               Serial.println(devaddr, HEX);
-              Serial.print("artKey: ");
-              for (int i=0; i<sizeof(artKey); ++i) {
-                Serial.print(artKey[i], HEX);
+              Serial.print("AppSKey: ");
+              for (size_t i=0; i<sizeof(artKey); ++i) {
+                if (i != 0)
+                  Serial.print("-");
+                printHex2(artKey[i]);
               }
               Serial.println("");
-              Serial.print("nwkKey: ");
-              for (int i=0; i<sizeof(nwkKey); ++i) {
-                Serial.print(nwkKey[i], HEX);
+              Serial.print("NwkSKey: ");
+              for (size_t i=0; i<sizeof(nwkKey); ++i) {
+                      if (i != 0)
+                              Serial.print("-");
+                      printHex2(nwkKey[i]);
               }
-              Serial.println("");
+              Serial.println();
             }
             // Disable link check validation (automatically enabled
             // during join, but because slow data rates change max TX
-	    // size, we don't use it in this example.
+      // size, we don't use it in this example.
             LMIC_setLinkCheckMode(0);
             break;
         /*
@@ -189,6 +202,16 @@ void onEvent (ev_t ev) {
         case EV_TXSTART:
             Serial.println(F("EV_TXSTART"));
             break;
+        case EV_TXCANCELED:
+            Serial.println(F("EV_TXCANCELED"));
+            break;
+        case EV_RXSTART:
+            /* do not print anything -- it wrecks timing */
+            break;
+        case EV_JOIN_TXCOMPLETE:
+            Serial.println(F("EV_JOIN_TXCOMPLETE: no JoinAccept"));
+            break;
+
         default:
             Serial.print(F("Unknown event: "));
             Serial.println((unsigned) ev);
