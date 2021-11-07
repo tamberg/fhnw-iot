@@ -51,22 +51,27 @@
 
 // This EUI must be in little-endian format, so least-significant-byte
 // first. When copying an EUI from ttnctl output, this means to reverse
-// the bytes. For TTN issued EUIs the last bytes should be 0xD5, 0xB3,
-// 0x70.
-static const u1_t PROGMEM APPEUI[8] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+// the bytes.
+static const u1_t PROGMEM APPEUI[8] = // TODO, lsb (!)
+  { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+
 void os_getArtEui (u1_t* buf) { memcpy_P(buf, APPEUI, 8);}
 
 // This should also be in little endian format, see above.
-static const u1_t PROGMEM DEVEUI[8] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+static const u1_t PROGMEM DEVEUI[8] = // TODO, lsb (!)
+  { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+
 void os_getDevEui (u1_t* buf) { memcpy_P(buf, DEVEUI, 8);}
 
 // This key should be in big endian format (or, since it is not really a
 // number but a block of memory, endianness does not really apply). In
 // practice, a key taken from ttnctl can be copied as-is.
-static const u1_t PROGMEM APPKEY[16] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+static const u1_t PROGMEM APPKEY[16] = // msb
+  { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+
 void os_getDevKey (u1_t* buf) {  memcpy_P(buf, APPKEY, 16);}
 
-static uint8_t mydata[] = "Hello, werld!";
+static uint8_t mydata[] = "Hello, World!";
 static osjob_t sendjob;
 
 // Schedule TX every this many seconds (might become longer due to duty
@@ -75,7 +80,7 @@ const unsigned TX_INTERVAL = 60;
 
 // Pin mapping
 
-// https://github.com/tamberg/fhnw-iot/wiki/FeatherWing-RFM95W
+// See https://github.com/tamberg/fhnw-iot/wiki/FeatherWing-RFM95W
 
 // Feather nRF52840 Express
 const lmic_pinmap lmic_pins = {
@@ -115,7 +120,7 @@ void onEvent (ev_t ev) {
               devaddr_t devaddr = 0;
               u1_t nwkKey[16];
               u1_t artKey[16];
-              LMIC_getSessionKeys(&netid, &devaddr, nwkKey, artKey);
+              LMIC_setSession(netid, devaddr, nwkKey, artKey);
               Serial.print("netid: ");
               Serial.println(netid, DEC);
               Serial.print("devaddr: ");
@@ -186,9 +191,9 @@ void onEvent (ev_t ev) {
         ||    Serial.println(F("EV_SCAN_FOUND"));
         ||    break;
         */
-        case EV_TXSTART:
-            Serial.println(F("EV_TXSTART"));
-            break;
+//        case EV_TXSTART:
+//            Serial.println(F("EV_TXSTART"));
+//            break;
         default:
             Serial.print(F("Unknown event: "));
             Serial.println((unsigned) ev);
@@ -209,7 +214,8 @@ void do_send(osjob_t* j){
 }
 
 void setup() {
-    Serial.begin(9600);
+    Serial.begin(115200);
+    while (!Serial) {}
     Serial.println(F("Starting"));
 
     #ifdef VCC_ENABLE
