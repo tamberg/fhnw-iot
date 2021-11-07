@@ -49,28 +49,30 @@
 # define FILLMEIN (#dont edit this, edit the lines that use FILLMEIN)
 #endif
 
-// TODO set keys, e.g. from https://console.thethingsnetwork.org/applications/fhnw-iot/devices/fhnw-iot-arduino-1/data
+// TODO set keys, e.g. from https://eu1.cloud.thethings.network/console/applications/fhnw-iot/devices/fhnw-iot-device-0
 
 // LoRaWAN NwkSKey, network session key
-static const PROGMEM u1_t NWKSKEY[16] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+static const PROGMEM u1_t NWKSKEY[16] = // TODO, msb
+  { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
 
 // LoRaWAN AppSKey, application session key
-static const u1_t PROGMEM APPSKEY[16] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+static const u1_t PROGMEM APPSKEY[16] = // TODO, msb
+  { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
 
 // LoRaWAN end-device address (DevAddr)
 // See http://thethingsnetwork.org/wiki/AddressSpace
 // The library converts the address to network byte order as needed.
-static const u4_t DEVADDR = 0x00000000; // <-- Change this address for every node!
+static const u4_t DEVADDR = 0x00000000; // TODO
 
 // These callbacks are only used in over-the-air activation, so they are
 // left empty here (we cannot leave them out completely unless
 // DISABLE_JOIN is set in arduino-lmic/project_config/lmic_project_config.h,
 // otherwise the linker will complain).
-void os_getArtEui (u1_t* buf) { }
-void os_getDevEui (u1_t* buf) { }
-void os_getDevKey (u1_t* buf) { }
+void os_getArtEui (u1_t* buf) {}
+void os_getDevEui (u1_t* buf) {}
+void os_getDevKey (u1_t* buf) {}
 
-static uint8_t mydata[] = "Hello, world!";
+static uint8_t mydata[] = "Hello, world!"; // max 51
 static osjob_t sendjob;
 
 // Schedule TX every this many seconds (might become longer due to duty
@@ -79,7 +81,7 @@ const unsigned TX_INTERVAL = 60;
 
 // Pin mapping
 
-// https://github.com/tamberg/fhnw-iot/wiki/FeatherWing-RFM95W
+// See https://github.com/tamberg/fhnw-iot/wiki/FeatherWing-RFM95W
 
 // Feather Huzzah ESP8266
 const lmic_pinmap lmic_pins = {
