@@ -8,7 +8,6 @@ const ttnAccessKey = 'TTN_ACCESS_KEY';
 const tsBroker = "mqtt://mqtt.thingspeak.com/";
 const ttnBroker = "mqtt://eu.thethings.network/";
 const ttnDevices = {
-  "fhnw-iot-0": { tsWriteApiKey: "4XLD8JL1H610N41V", tsChannelId: "758483" },
   "TTN_DEV_ID_1": { tsWriteApiKey: "WRITE_API_KEY_1", tsChannelId: "CHANNEL_ID_1" },
   "TTN_DEV_ID_2": { tsWriteApiKey: "WRITE_API_KEY_2", tsChannelId: "CHANNEL_ID_2" },
   "TTN_DEV_ID_3": { tsWriteApiKey: "WRITE_API_KEY_3", tsChannelId: "CHANNEL_ID_3" },
@@ -31,17 +30,17 @@ tsClient.on("connect", () => {
 
 ttnClient.on("message", (topic, message) => {
   console.log(message);
-  const bytes = Buffer.from(message.payload_raw, 'base64');
+  const bytes = Buffer.from(msg.data.uplink_message.frm_payload, 'base64');
   const x = ((bytes[0] << 8) | bytes[1]) / 100.0;
   const y = ((bytes[2] << 8) | bytes[3]) / 100.0;
   
   const tsMsgData = qs.stringify({
-    "api_key": ttnDevices[msg.dev_id].tsWriteApiKey,
+    "api_key": ttnDevices[msg.data.end_device_ids.device_id].tsWriteApiKey,
     "field1": x,
     "field2": y
   });
   const tsTopic =
-    "channels/" + ttnDevices[msg.dev_id].tsChannelId + 
-    "/publish/" + ttnDevices[msg.dev_id].tsWriteApiKey;
+    "channels/" + ttnDevices[msg.data.end_device_ids.device_id].tsChannelId + 
+    "/publish/" + ttnDevices[msg.data.end_device_ids.device_id].tsWriteApiKey;
   tsClient.publish(tsTopic, tsMsgData);
 });
