@@ -14,7 +14,7 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [TtnToThingSpeakAdapterMqtt.js](Nodejs/TtnToThingSpeakAdapterMqtt.js)
 
 ### Now
-- [TtnToThingSpeakAdapter/index.js](Now/TtnToThingSpeakAdapter/index.js)
+- <s>[TtnToThingSpeakAdapter/index.js](Now/TtnToThingSpeakAdapter/index.js)</s>
 - [WebRequest/index.js](Now/WebRequest/index.js)
 - [HelloWorld/index.js](Now/HelloWorld/index.js)
 
