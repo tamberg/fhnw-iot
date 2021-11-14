@@ -6,9 +6,9 @@ const http = require("http"),
   qs = require("querystring");
 
 const writeApiKeys = {
-  "TTN_DEVICE_ID_1": "WRITE_API_KEY_1", // CHANNEL_ID_1
-  "TTN_DEVICE_ID_2": "WRITE_API_KEY_2", // CHANNEL_ID_2
-  "TTN_DEVICE_ID_3": "WRITE_API_KEY_3", // CHANNEL_ID_3
+  "TTN_DEVICE_ID_1": "WRITE_API_KEY_1", // CHANNEL_ID_1 // TODO
+  "TTN_DEVICE_ID_2": "WRITE_API_KEY_2", // CHANNEL_ID_2 // TODO
+  "TTN_DEVICE_ID_3": "WRITE_API_KEY_3", // CHANNEL_ID_3 // TODO
 };
 
 //const host = "127.0.0.1"; // loopback address
