@@ -36,7 +36,7 @@ const server = http.createServer((ttnReq, ttnRes) => {
     const msg = JSON.parse(ttnReqData);
     console.log(msg);
 
-    const bytes = Buffer.from(msg.payload_raw, 'base64');
+    const bytes = Buffer.from(msg.data.uplink_message.frm_payload, 'base64');
     // assume two float * 100, high/low byte
     const x = ((bytes[0] << 8) | bytes[1]) / 100.0;
     const y = ((bytes[2] << 8) | bytes[3]) / 100.0;
@@ -44,7 +44,7 @@ const server = http.createServer((ttnReq, ttnRes) => {
     // Prepare the Web request to ThingSpeak
 
     const tsReqData = qs.stringify({
-      "api_key": writeApiKeys[msg.dev_id],
+      "api_key": writeApiKeys[msg.data.end_device_ids.device_id],
       "field1": x,
       "field2": y
     });
