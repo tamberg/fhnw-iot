@@ -17,11 +17,7 @@ const host = "0.0.0.0"; // any incoming address
 const port = 8080;
 
 const server = http.createServer((ttnReq, ttnRes) => {
-
   // Handle the (Webhook) Web request from TTN
-
-  console.log(ttnReq);
-
   let ttnReqData = "";
 
   ttnReq.on('data', (data) => {
@@ -29,28 +25,21 @@ const server = http.createServer((ttnReq, ttnRes) => {
   });
 
   ttnReq.on('end', () => {
-
+    console.log("TTN request received.");
     // Convert the data from TTN to ThingSpeak data format
-
-    const msg = JSON.parse(ttnReqData);
-    console.log(msg);
-
-    const bytes = Buffer.from(msg.uplink_message.frm_payload, 'base64');
-    // assume two float * 100, high/low byte
-    const x = ((bytes[0] << 8) | bytes[1]) / 100.0;
-    const y = ((bytes[2] << 8) | bytes[3]) / 100.0;
+    const json = JSON.parse(ttnReqData);
+    const deviceId = json.end_device_ids.device_id;
+    const payload = json.uplink_message.frm_payload;
+    const bytes = Buffer.from(payload, 'base64');
+    const temp = ((bytes[0] << 8) | bytes[1]) / 100.0;
+    const humi = ((bytes[2] << 8) | bytes[3]) / 100.0;
 
     // Prepare the Web request to ThingSpeak
-
     const tsReqData = qs.stringify({
-      "api_key": writeApiKeys[msg.end_device_ids.device_id],
-      "field1": x,
-      "field2": y
+      "api_key": writeApiKeys[deviceId],
+      "field1": temp,
+      "field2": humi
     });
-
-    console.log(bytes);
-    console.log(tsReqData);
-
     const tsReqOptions = {
       hostname: "api.thingspeak.com",
       path: "/update",
@@ -60,10 +49,9 @@ const server = http.createServer((ttnReq, ttnRes) => {
         "Content-Type": "application/x-www-form-urlencoded",
         "Content-Length": Buffer.byteLength(tsReqData)
       }
-	};
+	  };
   
     // Execute the Web request to ThingSpeak
-
     const tsReq = https.request(tsReqOptions, (tsRes) => {
       let tsResData = "";
 
@@ -72,35 +60,28 @@ const server = http.createServer((ttnReq, ttnRes) => {
       });
 
       tsRes.on("end", () => {
-        console.log(tsResData);
-
+        console.log("ThingSpeak response " + tsRes.statusCode + " received.");
         // Success: Reply to the original Web request from TTN
-
         ttnRes.statusCode = 200;
         ttnRes.setHeader("Content-Type", "text/plain");
         ttnRes.end("200 OK");
+        console.log("TTN response 200 sent.");
       });
     });
-
+    
     tsReq.on("error", (err) => {
-      console.log("Error: " + err.message);
-
+      console.log("ThingSpeak request error: " + err.message);
       // Error: Reply to the original Web request from TTN
-
       ttnRes.statusCode = 500;
       ttnRes.setHeader("Content-Type", "text/plain");
       ttnRes.end("500 Internal Server Error");
+      console.log("TTN response 500 sent.");
     });
-
+    
     tsReq.write(tsReqData);
     tsReq.end();
+    console.log("ThingSpeak request sent.");
   });
-
-//  // Reply immedately to the original Web request from TTN
-
-//  ttnRes.statusCode = 200;
-//  ttnRes.setHeader("Content-Type", "text/plain");
-//  ttnRes.end("200 OK");
 });
 
 server.listen(port, host, () => {
