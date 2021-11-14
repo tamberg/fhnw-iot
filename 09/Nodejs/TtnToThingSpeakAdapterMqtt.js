@@ -1,12 +1,15 @@
 const mqtt = require('mqtt'); // npm install mqtt
 const ttn = require('ttn'); // npm install ttn
 
-//const ttnAppId = 'TTN_APP_ID';
-const ttnAppId = 'fhnw-iot';
-const ttnAccessKey = 'TTN_ACCESS_KEY';
-
 const tsBroker = "mqtt://mqtt.thingspeak.com/";
-const ttnBroker = "mqtt://eu.thethings.network/";
+
+const ttnAppId = 'TTN_APP_ID';
+const ttnBroker = "mqtt://eu1.cloud.thethings.network/";
+const ttnBrokerOptions = {
+  username: ttnAppId + "@ttn",
+  password: "TTN_API_KEY"
+}
+
 const ttnDevices = {
   "TTN_DEV_ID_1": { tsWriteApiKey: "WRITE_API_KEY_1", tsChannelId: "CHANNEL_ID_1" },
   "TTN_DEV_ID_2": { tsWriteApiKey: "WRITE_API_KEY_2", tsChannelId: "CHANNEL_ID_2" },
@@ -14,12 +17,12 @@ const ttnDevices = {
 };
 
 const tsClient = mqtt.connect(tsBroker);
-const ttnClient = mqtt.connect(ttnBroker);
+const ttnClient = mqtt.connect(ttnBroker, ttnBrokerOptions);
 
 ttnClient.on("connect", () => { 
   console.log("TTN client connected.");
   for (let i = 0; i < ttnDevices.length; i++) {
-    const ttnTopic = ttnAppId + "/devices/" + ttnDevices[i] + "/up"
+    const ttnTopic = "v3/" + ttnAppId + "@ttn/devices/" + ttnDevices[i] + "/up"
     ttnClient.subscribe(ttnTopic);
   }
 });
