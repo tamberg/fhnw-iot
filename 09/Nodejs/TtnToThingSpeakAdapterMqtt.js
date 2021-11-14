@@ -37,14 +37,18 @@ ttnClient.on("message", (ttnTopic, ttnMessage) => {
   const json = JSON.parse(ttnMessage);
   const deviceId = json.end_device_ids.device_id;
   const payload = json.uplink_message.frm_payload;
-  const bytes = Buffer.from(payload, 'base64');
-  const temp = ((bytes[0] << 8) | bytes[1]) / 100.0;
-  const humi = ((bytes[2] << 8) | bytes[3]) / 100.0;
+  if (payload != undefined) {
+    const bytes = Buffer.from(payload, 'base64');
+    const temp = ((bytes[0] << 8) | bytes[1]) / 100.0;
+    const humi = ((bytes[2] << 8) | bytes[3]) / 100.0;
 
-  const tsTopic =
-    "channels/" + ttnDevices[deviceId].tsChannelId + 
-    "/publish/" + ttnDevices[deviceId].tsWriteApiKey;
-  const tsMessage = "field1=" + temp + "&field2=" + humi;
-  tsClient.publish(tsTopic, tsMessage);
-  console.log("ThingSpeak message published, " + tsTopic);
+    const tsTopic =
+      "channels/" + ttnDevices[deviceId].tsChannelId + 
+      "/publish/" + ttnDevices[deviceId].tsWriteApiKey;
+    const tsMessage = "field1=" + temp + "&field2=" + humi;
+    tsClient.publish(tsTopic, tsMessage);
+    console.log("ThingSpeak message published, " + tsTopic);
+  } else {
+    console.log("TTN message payload undefined.");
+  }
 });
