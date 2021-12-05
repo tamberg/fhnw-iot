@@ -6,6 +6,10 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [Handout](http://www.tamberg.org/fhnw/2021/hs/IoT10RuleBasedIntegrationHandout.pdf)
 
 ## Examples
+### Arduino
+- [ESP8266_MqttPubClientTemp.ino](ESP8266_MqttPubClientTemp/ESP8266_MqttPubClientTemp.ino)
+- [ESP8266_MqttSubClientAlert.ino](ESP8266_MqttSubClientAlert/ESP8266_MqttSubClientAlert.ino)
+
 ### Node-RED
 - [mqtt-basic-temp-alert-flow.json](Node-RED/mqtt-basic-temp-alert-flow.json)
 - [mqtts-json-temp-alert-flow.json](Node-RED/mqtts-json-temp-alert-flow.json)
