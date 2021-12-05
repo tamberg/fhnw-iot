@@ -3,6 +3,7 @@
 
 const char *ssid = "MY_SSID"; // TODO
 const char *password = "MY_PASSWORD"; // TODO
+const char *host = "mqtt://LOCAL_IP"; // TODO
 const int buzzerPin = 5;
 
 MQTTClient client;
@@ -44,7 +45,7 @@ void setup() {
   client.onConnect(handleConnected);
   client.onSubscribe(handleSubscribed);
   client.onData(handleDataReceived);
-  client.begin("mqtt://192.168.99.51/");
+  client.begin(host);
 }
 
 void loop() {

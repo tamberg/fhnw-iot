@@ -9,6 +9,7 @@ DHTesp dht;
 
 const char *ssid = "MY_SSID"; // TODO
 const char *password = "MY_PASSWORD"; // TODO
+const char *host = "mqtt://LOCAL_IP"; // TODO
 
 MQTTClient client;
 volatile int connected = 0;
@@ -32,7 +33,7 @@ void setup() {
   Serial.println(WiFi.localIP());
 
   client.onConnect(handleConnected);
-  client.begin("mqtt://192.168.99.51/");
+  client.begin(host);
 }
 
 void loop() {
