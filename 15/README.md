@@ -14,16 +14,16 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 Start|Talk<sup>*</sup>|Q&A|Change|Team
 :---|:---|:---|:---|:---
 08:15|3'||2'|_Intro_
-08:20|10'|3'|2'|A
-08:35|10'|3'|2'|B
-08:50|10'|3'|2'|C
-09:05|10'|3'|2'|D
-09:20|10'|3'|2'|E
-09:35|10'|3'|2'|F
-09:50|10'|3'|2'|G
-10:05|10'|3'|2'|H
-10:20|10'|3'|2'|I
-10:35|10'|3'|2'|J
+08:20|10'|3'|2'|Connected Coffee Maker
+08:35|10'|3'|2'|Mood Track
+08:50|10'|3'|2'|Air Quality Monitor
+09:05|10'|3'|2'|Follow-Me Light
+09:20|10'|3'|2'|Motion Detection
+09:35|10'|3'|2'|Crypto Price Tracker
+09:50|10'|3'|2'|Cam & Pager
+10:05|10'|3'|2'|Remote Door Control
+10:20|10'|3'|2'|E-Paper Photoframe
+10:35|10'|3'|2'|Plant Waterer
 10:50|10'|||_Wrap-up_
 
 <sup>*</sup>*including <s>live demo or</s> 2' video.*
