@@ -15,7 +15,7 @@ Start|Talk<sup>*</sup>|Q&A|Change|Team
 :---|:---|:---|:---|:---
 08:15|3'||2'|_Intro_
 08:20|10'|3'|2'|Remote Door Control
-08:35|10'|3'|2'|Mood Track
+08:35|10'|3'|2'|Mood Tracker
 08:50|10'|3'|2'|Air Quality Monitor
 09:05|10'|3'|2'|Follow-Me Light
 09:20|10'|3'|2'|Motion Detection
