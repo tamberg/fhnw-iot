@@ -26,4 +26,4 @@ Start|Talk<sup>*</sup>|Q&A|Change|Team
 10:35|10'|3'|2'|J
 10:50|10'|||_Wrap-up_
 
-<sup>*</sup>*including <s>live demo or</s> 2' video.*
+<sup>*</sup>*including live demo or 2' video.*
