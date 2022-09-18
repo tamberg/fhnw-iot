@@ -3,7 +3,6 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 
 ## Lesson 8: Long Range Connectivity with LoRaWAN
 - [Slides](http://www.tamberg.org/fhnw/2021/hs/IoT08LoRaWANConnectivity.pdf)
-- [Handout](http://www.tamberg.org/fhnw/2021/hs/IoT08LoRaWANConnectivityHandout.pdf)
 
 ## Examples
 ### Arduino
