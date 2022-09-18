@@ -20,7 +20,7 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 15. [Demo Day](15/README.md)
 
 ## Hardware
-This course is based on the following hardware:
+This course is based on the following [hardware](https://github.com/tamberg/fhnw-iot/wiki#hardware):
 
 * [Raspberry Pi Zero W](./../../wiki/Raspberry-Pi-Zero-W)
 * [Feather Huzzah ESP8266](./../../wiki/Feather-Huzzah-ESP8266)
