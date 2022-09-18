@@ -3,7 +3,6 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 
 ## Lesson 9: Dashboards and Apps for Sensor Data
 - [Slides](http://www.tamberg.org/fhnw/2021/hs/IoT09Dashboards.pdf)
-- [Handout](http://www.tamberg.org/fhnw/2021/hs/IoT09DashboardsHandout.pdf)
 
 ## Examples
 ### Arduino
