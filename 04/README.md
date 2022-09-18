@@ -3,7 +3,6 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 
 ## Lesson 4: Internet Protocols, HTTP and CoAP
 - [Slides](http://www.tamberg.org/fhnw/2021/hs/IoT04InternetProtocols.pdf)
-- [Handout](http://www.tamberg.org/fhnw/2021/hs/IoT04InternetProtocolsHandout.pdf)
 
 ## Examples
 - [ESP8266_LedWebService.ino](Arduino/ESP8266_LedWebService/ESP8266_LedWebService.ino)
