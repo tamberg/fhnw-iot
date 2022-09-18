@@ -3,7 +3,6 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 
 ## Lesson 12: Raspberry Pi as an IoT Edge Device
 - [Slides](http://www.tamberg.org/fhnw/2021/hs/IoT12RaspberryPiEdgeDevice.pdf)
-- [Handout](http://www.tamberg.org/fhnw/2021/hs/IoT12RaspberryPiEdgeDeviceHandout.pdf)
 
 ## Examples
 ### Node.js
