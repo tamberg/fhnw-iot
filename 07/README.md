@@ -3,7 +3,6 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 
 ## Lesson 7: Messaging Protocols and Data Formats
 - [Slides](http://www.tamberg.org/fhnw/2021/hs/IoT07MessagingProtocols.pdf)
-- [Handout](http://www.tamberg.org/fhnw/2021/hs/IoT07MessagingProtocolsHandout.pdf)
 
 ## Examples
 ### Arduino
