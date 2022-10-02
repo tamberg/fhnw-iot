@@ -1,7 +1,7 @@
 #include <ESP8266WiFi.h>
 #include <time.h>
 
-// Chrome > Address bar lock icon > CA Certificate > Drag & Drop Cert
+// Safari > Address bar lock icon > CA Certificate > Drag & Drop Cert
 // $ openssl x509 -inform der -in www.howsmyssl.com.cer -out cert.pem 
 const char cert_pem [] PROGMEM = R"CERT(
 -----BEGIN CERTIFICATE-----
