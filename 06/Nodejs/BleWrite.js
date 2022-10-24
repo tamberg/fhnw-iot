@@ -1,9 +1,9 @@
 const noble = require("@abandonware/noble");
 
 const hrmServiceUuid = "180d";
-const hrmHeartRateCharacteristicUuid = "2a37";
+const hrmControlPointCharacteristicUuid = "2a39";
 const serviceUuids = [hrmServiceUuid];
-const characteristicUuids = [hrmHeartRateCharacteristicUuid];
+const characteristicUuids = [hrmControlPointCharacteristicUuid];
 
 noble.on("discover", (peripheral) => {
   noble.stopScanning();
@@ -18,10 +18,10 @@ noble.on("discover", (peripheral) => {
         service.discoverCharacteristics(characteristicUuids, (err, characteristics) => {
           characteristics.forEach((characteristic) => {
             console.log("found characteristic:", characteristic.uuid);
-// TODO: write
-//            characteristic.read((error, data) => {
-//              const value = data.readUInt8(0);
-//              console.log("read characteristic value:", value);
+            const data = Buffer.alloc(1);
+            data.writeUInt8(0x01, 0);
+            console.log("writing data: ", data);
+            characteristic.write(data, false, function (err) {
               peripheral.disconnect((err) => {
                 console.log("disconnected");
                 process.exit();
