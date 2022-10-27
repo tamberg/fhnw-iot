@@ -7,8 +7,8 @@ const reqData = qs.stringify({
 });
 
 const options = {
-  hostname: "postb.in",
-  path: "/MY_POSTBIN_ID", // TODO, see https://postb.in/
+  hostname: "www.toptal.com",
+  path: "/developers/postbin/MY_POSTBIN_ID", // TODO, see https://postb.in/
   method: "POST",
   port: 443,
   headers: {
