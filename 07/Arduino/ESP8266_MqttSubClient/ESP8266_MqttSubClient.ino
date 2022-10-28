@@ -1,5 +1,5 @@
-#include <ESP8266WiFi.h> // v2.4.2
-#include <ESP8266MQTTClient.h> // v1.0.4
+#include <ESP8266WiFi.h>
+#include <ESP8266MQTTClient.h>
 
 const char *ssid = "MY_SSID"; // TODO
 const char *password = "MY_PASSWORD"; // TODO
