@@ -1,14 +1,15 @@
-#include <ESP8266WiFi.h> // v2.4.2
-#include <ESP8266MQTTClient.h> // v1.0.4
+#include <ESP8266WiFi.h>
+#include <ESP8266MQTTClient.h>
 
 const char *ssid = "MY_SSID"; // TODO
 const char *password = "MY_PASSWORD"; // TODO
 
 MQTTClient client;
+volatile int connected = 0;
 
 void handleConnected() {
   Serial.println("Connected to broker");
-  client.publish("hello", "Hello, World!");
+  connected = 1;
 }
 
 void setup() {
@@ -24,9 +25,16 @@ void setup() {
   Serial.println(WiFi.localIP());
 
   client.onConnect(handleConnected);
-  client.begin("mqtt://test.mosquitto.org/");
+  client.begin("mqtt://192.168.99.51/");
 }
 
 void loop() {
   client.handle();
+  if (connected) {
+    float temp = analogRead(A0) / 10.0f; // TODO
+    String tempStr = String(temp, 2);
+    Serial.println(tempStr);
+    client.publish("temp", tempStr);
+    delay(1000);
+  }
 }
