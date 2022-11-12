@@ -12,7 +12,7 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [TtnToThingSpeakAdapter.js](Nodejs/TtnToThingSpeakAdapter.js)
 - [TtnToThingSpeakAdapterMqtt.js](Nodejs/TtnToThingSpeakAdapterMqtt.js)
 
-### Now
+### Vercel (f.k.a. Now)
 - <s>[TtnToThingSpeakAdapter/index.js](Now/TtnToThingSpeakAdapter/index.js)</s>
 - [WebRequest/index.js](Now/WebRequest/index.js)
 - [HelloWorld/index.js](Now/HelloWorld/index.js)
