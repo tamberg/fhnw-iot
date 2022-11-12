@@ -25,7 +25,7 @@ void setup() {
   Serial.println(WiFi.localIP());
 
   client.onConnect(handleConnected);
-  client.begin("mqtt://192.168.99.51/");
+  client.begin("mqtt://test.mosquitto.org/");
 }
 
 void loop() {
