@@ -2,7 +2,7 @@
 Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https://twitter.com/tamberg) for [FHNW](https://www.fhnw.ch/).
 
 ## Lesson 10: Rule-based Integration of IoT Devices
-- [Slides](http://www.tamberg.org/fhnw/2022/hs/IoT10RuleBasedIntegration.pdf)
+- [Slides](http://www.tamberg.org/fhnw/2023/hs/IoT10RuleBasedIntegration.pdf)
 
 ## Examples
 ### Arduino
