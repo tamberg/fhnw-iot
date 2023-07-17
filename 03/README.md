@@ -2,7 +2,7 @@
 Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https://twitter.com/tamberg) for [FHNW](https://www.fhnw.ch/).
 
 ## Lesson 3: Sending Sensor Data to IoT Platforms
-- [Slides](http://www.tamberg.org/fhnw/2022/hs/IoT03SensorDataPlatforms.pdf)
+- [Slides](http://www.tamberg.org/fhnw/2023/hs/IoT03SensorDataPlatforms.pdf)
 
 ## Examples
 - [ESP8266_WiFiClient.ino](Arduino/ESP8266_WiFiClient/ESP8266_WiFiClient.ino)
