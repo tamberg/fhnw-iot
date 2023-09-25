@@ -5,15 +5,15 @@ int ledPin = 5; // Grove D2
 
 int s = 0; // state
 
+int pressed(int val) {
+  return val == HIGH;
+}
+
 void setup() {
   pinMode(buttonPin, INPUT);
   pinMode(ledPin, OUTPUT);
   digitalWrite(ledPin, LOW);
   Serial.begin(115200);
-}
-
-int pressed(int val) {
-  return val == HIGH;
 }
 
 void loop() {
