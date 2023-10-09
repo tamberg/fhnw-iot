@@ -30,7 +30,8 @@ void setup() {
     client.print("Host: ");
     client.print(host);
     client.print("\r\n");
-    client.print("Connection: close\r\n\r\n");
+    client.print("Connection: close\r\n");
+    client.print("\r\n");
 
     // read HTTP response
     while (client.connected() || client.available()) {
