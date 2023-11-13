@@ -20,7 +20,6 @@ Start|Talk<sup>*</sup>|Q&A|Change|Team
 09:15|15'|||_Pause_
 09:30|10'|3'|2'|D
 09:45|10'|3'|2'|E
-10:00|10'|3'|2'|F
-10:15|15'|||_Wrap-up_
+10:00|15'|||_Wrap-up_
 
 <sup>*</sup>*including live demo or 2' video.*
