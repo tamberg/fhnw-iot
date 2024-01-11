@@ -1,4 +1,4 @@
-#include "Adafruit_TinyUSB.h"; // Fix https://github.com/adafruit/Adafruit_nRF52_Arduino/issues/653
+#include "Adafruit_TinyUSB.h" // Fix https://github.com/adafruit/Adafruit_nRF52_Arduino/issues/653
 
 int buttonPin = 9; // Grove D4
 int ledPin = 5; // Grove D2
