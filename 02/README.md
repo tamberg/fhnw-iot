@@ -2,7 +2,7 @@
 Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https://twitter.com/tamberg) for [FHNW](https://www.fhnw.ch/).
 
 ## Lesson 2: Microcontrollers, Sensors & Actuators
-- [Slides](http://www.tamberg.org/fhnw/2023/hs/IoT02Microcontrollers.pdf)
+- [Slides](http://www.tamberg.org/fhnw/2024/hs/IoT02Microcontrollers.pdf)
 
 ## Examples
 - [ESP8266_DHT11Test.ino](Arduino/ESP8266_DHT11Test/ESP8266_DHT11Test.ino)
