@@ -8,7 +8,7 @@ const char *password = "MY_PASSWORD"; // TODO
 
 const char *host = "www.howsmyssl.com"; // via @spiessa
 const char *fingerprint = // SHA-1, not very secure anymore
-  "E2 B2 89 0E F2 EE A7 C8 4E F3 2E BD BF 92 8A C4 A5 6C 39 5C";
+  "12 0B 16 02 73 0F E7 1A E2 2B B2 D4 D5 AE 0D 5E E3 F4 9F D4";
 const char *path = "/a/check";
 const int port = 443;
 
