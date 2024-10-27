@@ -7,4 +7,5 @@ client.on("connect", () => {
   const topic = "hello";
   const message = "Hello, World!";
   client.publish(topic, message);
+  client.end();
 });
