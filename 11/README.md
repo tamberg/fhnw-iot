@@ -2,7 +2,7 @@
 Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https://twitter.com/tamberg) for [FHNW](https://www.fhnw.ch/).
 
 ## Lesson 11: Voice Control for Connected Products
-- [Slides](http://www.tamberg.org/fhnw/2023/hs/IoT11VoiceControl.pdf)
+- [Slides](http://www.tamberg.org/fhnw/2024/hs/IoT11VoiceControl.pdf)
 
 ## Examples
 - [DebuggerAlexaSkill](Nodejs/DebuggerAlexaSkill/index.js)
