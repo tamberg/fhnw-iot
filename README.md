@@ -14,7 +14,7 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 9. [Dashboards and Apps for Sensor Data](09/README.md)
 10. [Rule-based Integration of IoT Devices](10/README.md)
 11. [Voice Control for Connected Products](11/README.md)
-12. [Raspberry Pi as an IoT Edge Device](12/README.md)
+12. <s>[Raspberry Pi as an IoT Edge Device](12/README.md)</s>
 13. [From Prototype to Connected Product](13/README.md)
 14. [Assessment](14/README.md)
 15. [Demo Day](15/README.md)
