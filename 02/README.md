@@ -10,7 +10,7 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [nRF52840_TM1637Test.ino](Arduino/nRF52840_TM1637Test/nRF52840_TM1637Test.ino)
 
 ## Hands-on
-- [Hands-on Lesson 2](../../../../fhnw-iot-work-02/blob/master/README.md)
+- TODO
 
 ## Solutions
 - [nRF52840_LightSwitch.ino](Arduino/nRF52840_LightSwitch/nRF52840_LightSwitch.ino)
