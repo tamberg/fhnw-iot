@@ -8,4 +8,4 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [pi.scad](OpenSCAD/pi.scad)
 
 ## Hands-on
-- [Hands-on Lesson 13](../../../../fhnw-iot-work-13/blob/master/README.md)
+- TODO
