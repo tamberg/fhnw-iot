@@ -13,4 +13,4 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [nRF52840_UartBlePeripheral.ino](Arduino/nRF52840_UartBlePeripheral/nRF52840_UartBlePeripheral.ino)
 
 ## Hands-on
-- [Hands-on Lesson 5](../../../../fhnw-iot-work-05/blob/master/README.md)
+- TODO
