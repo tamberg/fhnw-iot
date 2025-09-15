@@ -14,4 +14,4 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [mqtts-json-temp-alert-flow.json](Node-RED/mqtts-json-temp-alert-flow.json)
 
 ## Hands-on
-- [Hands-on Lesson 10](../../../../fhnw-iot-work-10/blob/master/README.md)
+- TODO
