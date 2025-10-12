@@ -12,7 +12,7 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [ESP8266_WebServerSecureBasicAuth.ino](Arduino/ESP8266_WebServerSecureBasicAuth/ESP8266_WebServerSecureBasicAuth.ino)
 
 ## Hands-on
-- [Hands-on Lesson 4](../../../../fhnw-iot-work-04/blob/master/README.md)
+- TODO
 
 ## Solution
 - [ESP8266_HueWiFiClientSecure.ino](Arduino/ESP8266_HueWiFiClientSecure/ESP8266_HueWiFiClientSecure.ino)

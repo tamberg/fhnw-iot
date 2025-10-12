@@ -16,4 +16,4 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [MqttSubClient.js](Nodejs/MqttSubClient.js)
 
 ## Hands-on
-- [Hands-on Lesson 7](../../../../fhnw-iot-work-07/blob/master/README.md)
+- TODO

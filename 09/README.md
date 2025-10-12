@@ -18,4 +18,4 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [HelloWorld/index.js](Now/HelloWorld/index.js)
 
 ## Hands-on
-- [Hands-on Lesson 9](../../../../fhnw-iot-work-09/blob/master/README.md)
+- TODO

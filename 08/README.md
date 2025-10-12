@@ -12,4 +12,4 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [nRF52840_LoRaWANNodeOtaa.ino](Arduino/nRF52840_LoRaWANNodeOtaa/nRF52840_LoRaWANNodeOtaa.ino)
 
 ## Hands-on
-- [Hands-on Lesson 8](../../../../fhnw-iot-work-08/blob/master/README.md)
+- TODO

@@ -25,4 +25,4 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [WebService.js](Nodejs/WebService.js)
 
 ## Hands-on
-- [Hands-on Lesson 6](../../../../fhnw-iot-work-06/blob/master/README.md)
+- TODO
