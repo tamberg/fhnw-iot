@@ -13,4 +13,8 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [nRF52840_UartBlePeripheral.ino](Arduino/nRF52840_UartBlePeripheral/nRF52840_UartBlePeripheral.ino)
 
 ## Hands-on
-- TODO
+- [ ] HRM BLE peripheral
+- [ ] UART BLE peripheral
+- [ ] UART BLE central
+- [ ] Beacons
+- [ ] Scanner BLE central
