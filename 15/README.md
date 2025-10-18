@@ -2,7 +2,7 @@
 Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https://twitter.com/tamberg) for [FHNW](https://www.fhnw.ch/).
 
 ## Project Template
-> Note: No need to fork or copy this, you'll get an invite.
+> Note: No need to fork or copy, you'll get an invite.
 - [Project Repository Template](../../../../fhnw-iot-project)
 
 ## Project Example
