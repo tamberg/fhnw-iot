@@ -6,6 +6,7 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [Project Repository Template](../../../../fhnw-iot-project)
 
 ## Project Example
+> Note: The template slightly changed since.
 - [Project Example](https://github.com/tamberg/fhnw-iot-project-example)
 
 ## Demo Day
