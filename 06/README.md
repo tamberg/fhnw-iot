@@ -25,4 +25,7 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 - [WebService.js](Nodejs/WebService.js)
 
 ## Hands-on
-- TODO
+- [ ] Bluetooth LE
+- [ ] Web client & service
+- [ ] Create a systemd service
+- [ ] Remote access
