@@ -16,8 +16,8 @@ Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https:
 Start|Talk<sup>*</sup>|Q&A|Change|Team
 :---|:---|:---|:---|:---
 08:15|15'|||_Intro_
-08:30|10'|3'|2'|A
-08:45|10'|3'|2'|B
+08:30|10'|3'|2'|B
+08:45|10'|3'|2'|A
 09:00|15'|||_Pause_
 09:15|10'|3'|2'|C
 09:30|10'|3'|2'|D
