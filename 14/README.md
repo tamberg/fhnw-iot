@@ -2,7 +2,7 @@
 Module [iot](https://www.fhnw.ch/de/studium/module/9280188) by [@tamberg](https://twitter.com/tamberg) for [FHNW](https://www.fhnw.ch/).
 
 ## Assessment
-- Assessment (TODO)
+- [Assessment](IoT14Assessment_v8.0_HS25_5ibb1.pdf)
 
 ## Examples
 - [HS24 5ibb1](https://github.com/tamberg/fhnw-iot/blob/v7.0/14/IoT14Assessment_v7.0_HS24_5ibb1.pdf)
